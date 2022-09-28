@@ -1,5 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View } from 'react-native';
+import { theme } from "./color";
 
 export default function App() {
   return (
