@@ -70,6 +70,8 @@ const Stack = createStackNavigator();
       </Stack.Navigator>
     </NavigationContainer>
 ```
+https://reactnavigation.org/docs/native-stack-navigator/#options
+
 6. 버튼 구현
 ```javascript
       <Button 
@@ -101,3 +103,4 @@ const Stack = createStackNavigator();
       </Tab.Navigator>
     </NavigationContainer>
 ```
+https://reactnavigation.org/docs/bottom-tab-navigator
