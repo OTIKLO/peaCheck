@@ -10,6 +10,9 @@
   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/></a>
 </p>
 
+아이콘
+icons.expo.fyi
+
 ## 코드
 
 #### expo 설치
