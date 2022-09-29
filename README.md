@@ -23,7 +23,7 @@ expo login
 
 # 주요 코드
 
-## 기본 폼 코드
+### 기본 폼 코드
 ```javascript
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
@@ -39,7 +39,8 @@ function Start() {
 export default Start;
 ```
 
-### React Native 화면 이동 관련
+## React Native 화면 이동 관련
++ ### 버튼 클릭으로 화면 이동
 1. 설치
 ```
 npm install @react-navigation/native
@@ -75,4 +76,28 @@ const Stack = createStackNavigator();
         title="go to main" 
         onPress={() => navigation.navigate('Main')}
       />
+```
++ ### 하단 메뉴 이동
+1. 설치
+```
+npm install @react-navigation/bottom-tabs
+```
+2. App.js에 import
+```javascript
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+```
+
+3. createBottomTabNavigator를 저장할 함수 선언
+createBottomTabNavigator():Screen과 Navigator의 속성을 포함하는 객체를 반환하는 함수, createStackNavigator와 거의 유사하다.
+```javascript
+const Stack = createStackNavigator();
+```
+4. 화면 이동 코드
+```javascript
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="개인 정보" component={Main}/>
+        <Tab.Screen name="추가 정보" component={Side}/>
+      </Tab.Navigator>
+    </NavigationContainer>
 ```
