@@ -11,7 +11,7 @@ function Main({ navigation }) {
                 <Text style={styles.titleText}>
                     완두체크
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Shop_management')}>
                     <AntDesign style={styles.plusbtn} name="plussquareo" size={40} color="black" />
                 </TouchableOpacity>
             </View>
