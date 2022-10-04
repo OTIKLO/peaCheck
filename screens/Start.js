@@ -17,7 +17,6 @@ function Start({navigation}) {
                 </TouchableOpacity>
             </View>
         </View>
-
     );
 }
 const styles = StyleSheet.create({
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
       height: 300,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#4fbc7a',
+      backgroundColor: '#ffff',
     },
   });
 /*
