@@ -17,7 +17,7 @@ function Chat({ navigation }) {
                         </View>
                         <View style={{justifyContent:'center'}}>
                             <Text style={styles.ctext}> 맥도날드 송도 GSD점</Text>
-                            <Text> 수고하셨습니다~ </Text>
+                            <Text> 확인했습니다. </Text>
                         </View>
                     </View>
 
