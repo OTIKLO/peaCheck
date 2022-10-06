@@ -12,7 +12,7 @@ function Start({navigation}) {
                 <Image source={logo} />
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Main')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Myinfo_insert')}>
                     <Image source={kakao}/>
                 </TouchableOpacity>
             </View>

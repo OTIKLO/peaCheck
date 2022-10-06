@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { theme } from "../Color";
 
-function myinfo_insert({ navigation }) {
+function Myinfo_insert({ navigation }) {
     const done = () => {
-        navigation.navigate('Main')
+        navigation.navigate('Tab');
     };
     return (
         <View style={styles.container}>
@@ -13,46 +13,47 @@ function myinfo_insert({ navigation }) {
             </View>
             <View style={styles.myinfo}>
                 <View style={styles.form}>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>이름</Text>
-                        <Text style={{color: 'red', marginTop: 17, marginLeft:5}}>필수</Text>
+                        <Text style={{ color: 'red', marginTop: 17, marginLeft: 5 }}>필수</Text>
                     </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
                     />
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>생년월일</Text>
+                        <Text style={{ color: 'red', marginTop: 17, marginLeft: 5 }}>필수</Text>
+                    </View>
+                    <TextInput
+                        style={styles.input}
+                        returnKeyType="next"
+                        placeholder="ex) 980101"
+                    />
+                    <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>주소</Text>
-                        <Text style={{color: 'red', marginTop: 17, marginLeft:5}}>필수</Text>
-                    </View>
-                    <View style={{flexDirection:"row", marginLeft: 20, marginRight: 20,}}>
-                        <TextInput
-                            style={styles.addressinput}
-                            returnKeyType="next"
-                            placeholder="도 / 시"
-                        />
-                        <TextInput
-                            style={styles.addressinput}
-                            returnKeyType="next"
-                            placeholder="시 / 군 / 구"
-                        />
+                        <Text style={{ color: 'red', marginTop: 17, marginLeft: 5 }}>필수</Text>
                     </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
-                        placeholder="상세주소"
+                        placeholder="도 / 시 / 군 / 구 / 동"
                     />
-                    <Text style={styles.text}>전화번호</Text>
+                    <Text style={styles.text}>상세주소</Text>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
                     />
-                    <Text style={styles.text}>업종</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>연락처</Text>
+                        <Text style={{ color: 'red', marginTop: 17, marginLeft: 5 }}>필수</Text>
+                    </View>
                     <TextInput
                         style={styles.input}
                         onSubmitEditing={done}
+                        placeholder=" - 없이"
                     />
-                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         fontSize: 25,
     },
-    shopupdate: {
+    myinfo: {
         backgroundColor: theme.light_green,
         height: '100%',
     },
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     },
     addressinput: {
         height: 40,
-        flex:1,
+        flex: 1,
         marginTop: 5,
         paddingLeft: 10,
         fontSize: 20,
@@ -123,4 +124,4 @@ const styles = StyleSheet.create({
         color: "#ffffff",
     },
 });
-export default myinfo_insert;
+export default Myinfo_insert;
