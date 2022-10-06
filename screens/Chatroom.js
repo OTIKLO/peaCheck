@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView } from "react-native";
 import { theme } from "../Color";
 import { FontAwesome } from '@expo/vector-icons'; 
 import user from '../assets/images/icon/user.png';
@@ -10,7 +10,7 @@ function Chatroom({ navigation }) {
             <View style={styles.header}>
                 <Text style={styles.headerText}>채팅방</Text>
             </View>
-            <View style={styles.chatroom}>
+            <ScrollView style={styles.chatroom}>
                 <View style={styles.chatting}>
                     <View style={styles.img}>
                         <Image source={user} />
@@ -29,13 +29,14 @@ function Chatroom({ navigation }) {
                         <Text style={styles.chattext}>읽고나면 대답 부탁드립니다.</Text>
                     </View>
                 </View>
+                
                 <View style={{alignItems: 'flex-end', marginRight:10}}>
                     <View style={styles.mychatting}>
                         <Text>확인했습니다.</Text>
                     </View>
                 </View>
                 
-            </View>
+            </ScrollView>
             <View style={{flexDirection:'row', height: 50, borderWidth:1, borderColor:theme.green, justifyContent:'center'}}>
                 <TextInput style={styles.input}></TextInput>
                 <TouchableOpacity style={{ flex:1, justifyContent: 'center',alignItems:'center', marginRight:10}}>
