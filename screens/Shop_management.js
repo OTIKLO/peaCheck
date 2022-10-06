@@ -31,7 +31,7 @@ function Shop_management({navigation}) {
                 <View style={styles.shop}>
                     <Text style={styles.shoptext}></Text>
                     <View style={styles.shopbutton}>
-                        <TouchableOpacity style={styles.shopbtn_insert}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                        <TouchableOpacity style={styles.shopbtn_insert} onPress={() => navigation.navigate('Shop_insert')}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                     </View>
                 </View>
             </View>

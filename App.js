@@ -7,6 +7,7 @@ import Start from "./screens/Start";
 import Main from "./screens/Main";
 import Shop_management from "./screens/Shop_management";
 import Shop_update from "./screens/Shop_update";
+import Shop_insert from "./screens/Shop_insert";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -17,6 +18,7 @@ export default function App() {
         <Stack.Screen name="Main" component={Main} options={{ headerShown:false}} />
         <Stack.Screen name="Shop_management" component={Shop_management} options={{ headerShown:false}} />
         <Stack.Screen name="Shop_update" component={Shop_update} options={{ headerShown:false}} />
+        <Stack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown:false}} />
       </Stack.Navigator> 
     </NavigationContainer>
   );

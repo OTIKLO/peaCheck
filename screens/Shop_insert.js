@@ -2,29 +2,23 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { theme } from "../Color";
 
-function Shop_update({ navigation }) {
+function Shop_insert({ navigation }) {
     const done = () => {
         navigation.navigate('Shop_management')
     };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>매장 수정</Text>
+                <Text style={styles.headerText}>매장 등록</Text>
             </View>
-            <View style={styles.shopupdate}>
+            <View style={styles.shopinsert}>
                 <View style={styles.form}>
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={styles.text}>매장명</Text>
-                        <Text style={{color: 'red', marginTop: 17, marginLeft:5}}>필수</Text>
-                    </View>
+                    <Text style={styles.text}>매장명</Text>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
                     />
-                    <View style={{flexDirection: 'row'}}>
-                        <Text style={styles.text}>주소</Text>
-                        <Text style={{color: 'red', marginTop: 17, marginLeft:5}}>필수</Text>
-                    </View>
+                    <Text style={styles.text}>주소</Text>
                     <View style={{flexDirection:"row", marginLeft: 20, marginRight: 20,}}>
                         <TextInput
                             style={styles.addressinput}
@@ -52,7 +46,7 @@ function Shop_update({ navigation }) {
                         style={styles.input}
                         onSubmitEditing={done}
                     />
-                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_insert} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -72,7 +66,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         fontSize: 25,
     },
-    shopupdate: {
+    shopinsert: {
         backgroundColor: theme.light_green,
         height: '100%',
     },
@@ -108,7 +102,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: theme.light_green,
     },
-    shopbtn_update: {
+    shopbtn_insert: {
         marginTop: 40,
         marginLeft: 20,
         marginRight: 20,
@@ -123,4 +117,4 @@ const styles = StyleSheet.create({
         color: "#ffffff",
     },
 });
-export default Shop_update;
+export default Shop_insert;
