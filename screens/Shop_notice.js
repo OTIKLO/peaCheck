@@ -1,36 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native";
 import { theme } from "../Color";
-import mc from "../assets/images/mc.png";
 import user from '../assets/images/icon/user.png';
+import { AntDesign } from '@expo/vector-icons'; //플러스 아이콘
 
 function Shop_notice({ navigation }) {
     const arrow = ">";
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>맥도날드 송도 GSD</Text>
+                <Text style={styles.headerText}>가게 공지 사항</Text>
             </View>
             <View style={styles.body}>
                 <View style={styles.body_top}>
-                    <View style={styles.shoplogo}>
-                        <View style={{width: '70%', height: '70%'}}>
-                            <Image source={mc} style={{ width:'100%', height: '100%'}} />
-                        </View>
-                    </View>
-                    <TouchableOpacity>
-                        <View style={styles.shopbutton}>
-                            <Text style={{ color:'white', fontSize:20}}>출퇴근</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <View style={{margin: 10, borderLeftWidth: 2, borderColor: theme.green}}><Text></Text></View>
+                    <Text style={styles.shopname}>맥도날드 송도 GSD</Text>
                 </View>
-                <View style={styles.notice}>
-                    <View style={styles.notice_top}>
-                        <Text style={{fontSize: 25,}}>가게 공지사항</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Shop_notice')}>
-                            <Text style={{fontSize: 15, marginTop: 10}}>모두 보기</Text>
-                        </TouchableOpacity>
-                    </View>
+                <ScrollView style={styles.notice}>
                     <View style={styles.notice_body}>
                         <View style={{marginLeft:10, marginTop:10, flexDirection:'row', alignItems:'center'}}>
                             <Image source={user} />
@@ -55,6 +41,11 @@ function Shop_notice({ navigation }) {
                             <Text>금일 마감시간 8시로 단축합니다.</Text>
                         </View>
                     </View>
+                </ScrollView>
+                <View style={styles.footer}>
+                    <TouchableOpacity>
+                        <AntDesign style={styles.plusbtn} name="plussquareo" size={40} color="black" />
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -63,11 +54,12 @@ function Shop_notice({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:'white'
     },
     header: {
         height: 90,
         backgroundColor: theme.light_green,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     headerText: {
         marginTop: 40,
@@ -79,40 +71,28 @@ const styles = StyleSheet.create({
     body_top: {
         borderBottomWidth: 1,
         borderBottomColor: theme.green,
+        flexDirection: 'row',
     },
-    shoplogo: {
-        margin: 20,
-        justifyContent:'center',
-        alignItems: 'center',
-        borderWidth: 3,
-        borderColor: theme.dark_green,
-        height: 200
-    },
-    shopbutton: {
-        margin: 20,
-        marginTop: 0,
-        height: 50,
-        backgroundColor: theme.green,
-        alignItems: 'center',
-        justifyContent: 'center',
+    shopname: {
+        fontSize:20,
+        fontWeight:"600",
+        marginTop:5,
     },
     notice: {
         backgroundColor:'#F4FAE4',
-        height: '100%',
-    },
-    notice_top: {
-        marginTop: 10,
-        marginLeft: 10,
-        marginRight: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        height: '75%'
     },
     notice_body:{
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        borderColor: theme.green,
-        marginTop: 10,
+        borderColor: theme.light_green,
         backgroundColor: 'white'
+    },
+    footer:{
+        alignItems:'flex-end',
+        justifyContent:'center',
+        height:70,
+        marginRight:20,
     }
 });
 
