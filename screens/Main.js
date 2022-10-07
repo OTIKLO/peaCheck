@@ -20,7 +20,7 @@ function Main({ navigation }) {
                     <View style={styles.body_shop}>
                         <View style={styles.shop}>
                             <View>
-                                <TouchableOpacity style={{ alignItems: 'center' }}>
+                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('Shop')}>
                                     <Image source={mc} style={{ width: '80%', height: '80%', marginTop: 14 }} />
                                 </TouchableOpacity>
                             </View>

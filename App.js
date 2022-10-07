@@ -10,6 +10,8 @@ import Main from "./screens/Main";
 import Shop_management from "./screens/Shop_management";
 import Shop_update from "./screens/Shop_update";
 import Shop_insert from "./screens/Shop_insert";
+import Shop from "./screens/Shop";
+import Shop_notice from "./screens/Shop_notice";
 import myinfo_insert from "./screens/Myinfo_insert";
 import Chat from "./screens/Chat";
 import Chatroom from "./screens/Chatroom";
@@ -25,6 +27,8 @@ const MainScreen = () => (
     <MainStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
     <MainStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
     <MainStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
+    <MainStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
+    <MainStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();
