@@ -2,14 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { theme } from "../Color";
 
-function Myinfo_insert({ navigation }) {
+function Myinfo_update({ navigation }) {
     const done = () => {
         navigation.navigate('Tab');
     };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>개인 정보 등록</Text>
+                <Text style={styles.headerText}>개인 정보 수정</Text>
             </View>
             <View style={styles.myinfo}>
                 <View style={styles.form}>
@@ -53,7 +53,7 @@ function Myinfo_insert({ navigation }) {
                         onSubmitEditing={done}
                         placeholder=" - 없이"
                     />
-                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -123,4 +123,4 @@ const styles = StyleSheet.create({
         color: "#ffffff",
     },
 });
-export default Myinfo_insert;
+export default Myinfo_update;

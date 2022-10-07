@@ -16,7 +16,7 @@ function Chatroom({ navigation }) {
                         <Image source={user} />
                     </View>
                     <View style={{marginLeft: 5}}>
-                        <Text>장민수</Text>
+                        <Text>황의충</Text>
                         <Text style={styles.chattext}>오늘 손님 많아서 일찍 오실 수 있는 분 일찍 와 주세요.</Text>
                     </View>
                 </View>
@@ -25,7 +25,7 @@ function Chatroom({ navigation }) {
                         <Image source={user} />
                     </View>
                     <View style={{marginLeft: 5}}>
-                        <Text>장민수</Text>
+                        <Text>황의충</Text>
                         <Text style={styles.chattext}>읽고나면 대답 부탁드립니다.</Text>
                     </View>
                 </View>

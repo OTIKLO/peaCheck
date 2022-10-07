@@ -13,6 +13,8 @@ import Shop_insert from "./screens/Shop_insert";
 import myinfo_insert from "./screens/Myinfo_insert";
 import Chat from "./screens/Chat";
 import Chatroom from "./screens/Chatroom";
+import Mypage from "./screens/Mypage";
+import myinfo_update from "./screens/Myinfo_update";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,6 +33,13 @@ const ChatScreen = () => (
     <ChatStack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
     <ChatStack.Screen name="Chatroom" component={Chatroom} options={{ headerShown: false }} />
   </ChatStack.Navigator>
+);
+const MypageStack = createStackNavigator();
+const MypageScreen = () => (
+  <MypageStack.Navigator>
+    <MypageStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false }} />
+    <MypageStack.Screen name="Myinfo_update" component={myinfo_update} options={{ headerShown: false }} />
+  </MypageStack.Navigator>
 );
 const TabNavigator = () => (
   <Tab.Navigator
@@ -57,7 +66,7 @@ const TabNavigator = () => (
     })}>
     <Tab.Screen name="Home" component={MainScreen} options={{ headerShown: false }} />
     <Tab.Screen name="채팅" component={ChatScreen} options={{ headerShown: false }}/>
-    <Tab.Screen name="MyPage" component={Shop_management} options={{ headerShown: false }}/>
+    <Tab.Screen name="MyPage" component={MypageScreen} options={{ headerShown: false }}/>
   </Tab.Navigator>
 );
 function App() {
