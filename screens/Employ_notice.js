@@ -16,19 +16,21 @@ function Employ_notice({ navigation }) {
                 </View>
                 <ScrollView style={styles.notice}>
                     <View style={styles.notice_body}>
-                        <View style={{ margin: 10, alignItems: 'center', flexDirection: 'row' }}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View>
-                                <Text style={{ fontWeight: "600", fontSize: 17 }}>맥도날드 송도 GSD</Text>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Text>송도동</Text>
-                                    <Text style={{ marginLeft: 10 }}>2022년 10월 9일 오후 8:18</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Employ_notice_detail')}>
+                            <View style={{ margin: 10, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={styles.shoplogo}>
+                                    <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
                                 </View>
-                                <Text>06 : 00 AM ~ 02 : 00 PM</Text>
+                                <View>
+                                    <Text style={{ fontWeight: "600", fontSize: 17 }}>맥도날드 송도 GSD</Text>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text>송도동</Text>
+                                        <Text style={{ marginLeft: 10 }}>2022년 10월 9일 오후 8:18</Text>
+                                    </View>
+                                    <Text>06 : 00 AM ~ 02 : 00 PM</Text>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.notice_body}>
                         <View style={{ margin: 10, alignItems: 'center', flexDirection: 'row' }}>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
         borderColor: theme.light_green,
         backgroundColor: 'white'
     },
-    shoplogo:{
+    shoplogo: {
         width: 100,
         height: 70,
         alignItems: 'center',

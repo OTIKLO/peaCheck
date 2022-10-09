@@ -1,28 +1,25 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView} from "react-native";
 import { theme } from "../Color";
 
-function Employ_notice_add({ navigation }) {
-    const done = () => {
-        navigation.navigate('Employ_notice')
-    };
+function Employ_notice_detail({ navigation }) {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>고용 공지 등록</Text>
+                <Text style={styles.headerText}>고용 공지</Text>
             </View>
             <View style={styles.body}>
                 <View style={styles.title}>
                     <Text style={styles.titletext}>제목</Text>
                 </View>
                 <View style={styles.value}>
-                    <TextInput style={styles.textinput}></TextInput>
+                    <Text style={styles.textinput}>맥도날드 송도 GSD점에서 사람을 구합니다.</Text>
                 </View>
                 <View style={styles.title}>
                     <Text style={styles.titletext}>시작날짜</Text>
                 </View>
                 <View style={styles.value}>
-                    <TextInput style={styles.textinput} placeholder="2022년 10월 09일"></TextInput>
+                    <Text style={styles.textinput}>2022년 10월 20일</Text>
                 </View>
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginRight: 20 }}>
                     <View style={styles.timetitle}>
@@ -34,26 +31,25 @@ function Employ_notice_add({ navigation }) {
                 </View>
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginRight: 20 }}>
                     <View style={styles.timevalue}>
-                        <TextInput style={[styles.textinput,{textAlign:'center'}]} placeholder="00 : 00 AM"></TextInput>
+                        <Text style={[styles.textinput,{textAlign:'center'}]}>06 : 00 AM</Text>
                     </View>
                     <View style={styles.timevalue}>
-                        <TextInput style={[styles.textinput,{textAlign:'center'}]} placeholder="12 : 00 PM"></TextInput>
+                        <Text style={[styles.textinput,{textAlign:'center'}]}>12 : 00 AM</Text>
                     </View>
                 </View>
                 <View style={[styles.title,{backgroundColor:theme.green}]}>
                     <Text style={[styles.titletext,{color:'white'}]}>본문</Text>
                 </View>
                 <View style={[styles.value,{height:200}]}>
-                    <TextInput style={[styles.textinput,{height:200,textAlignVertical:'top'}]} multiline={true}></TextInput>
+                    <Text style={[styles.textinput,{height:200,textAlignVertical:'top'}]}>
+                        급하게 사람 구합니다. 시급은 연락 후 협의를 통해 정합니다. 하는 일은 주방 보조, 청소 등 입니다. 010-XXXX-XXXX 연락 부탁 드립니다.
+                    </Text>
                 </View>
                 <View style={styles.title}>
                     <Text style={styles.titletext}>지역</Text>
                 </View>
                 <View style={styles.value}>
-                    <TextInput style={styles.textinput}></TextInput>
-                </View>
-                <View style={styles.body_bottom}>
-                    <TouchableOpacity style={styles.notice_add} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                    <Text style={styles.textinput}>송도동</Text>
                 </View>
             </View>
         </ScrollView>
@@ -120,18 +116,6 @@ const styles = StyleSheet.create({
     textinput: {
         fontSize: 18,
     },
-    notice_add: {
-        marginLeft: 20,
-        marginRight: 20,
-        height: 40,
-        backgroundColor: theme.dark_green,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    btntext: {
-        fontSize: 20,
-        color: "#ffffff",
-    },
 });
 
-export default Employ_notice_add;
+export default Employ_notice_detail;

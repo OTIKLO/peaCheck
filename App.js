@@ -20,6 +20,7 @@ import Chat from "./screens/Chat";
 import Chatroom from "./screens/Chatroom";
 import Mypage from "./screens/Mypage";
 import Myinfo_update from "./screens/Myinfo_update";
+import Employ_notice_detail from "./screens/Employ_notice_detail";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -35,6 +36,7 @@ const MainScreen = () => (
     <MainStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
     <MainStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
     <MainStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
+    <MainStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();
