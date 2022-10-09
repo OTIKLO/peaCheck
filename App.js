@@ -20,6 +20,7 @@ import Chat from "./screens/Chat";
 import Chatroom from "./screens/Chatroom";
 import Mypage from "./screens/Mypage";
 import Myinfo_update from "./screens/Myinfo_update";
+import Today from "./screens/Today";
 import Employ_notice_detail from "./screens/Employ_notice_detail";
 
 const Tab = createBottomTabNavigator();
@@ -51,6 +52,7 @@ const MypageScreen = () => (
   <MypageStack.Navigator>
     <MypageStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false }} />
     <MypageStack.Screen name="Myinfo_update" component={Myinfo_update} options={{ headerShown: false }} />
+    <MypageStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
   </MypageStack.Navigator>
 );
 const TabNavigator = () => (

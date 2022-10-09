@@ -23,28 +23,28 @@ function Mypage({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.mypage}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Today')}>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 30,marginTop:15}}>오늘근무</Text>
-                        <Text style={{fontSize: 50}}>{arrow}</Text>
+                        <Text style={{fontSize: 25,marginTop:15}}>오늘근무</Text>
+                        <Text style={{fontSize: 40}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 30,marginTop:15}}>출퇴근 기록표</Text>
-                        <Text style={{fontSize: 50}}>{arrow}</Text>
+                        <Text style={{fontSize: 25,marginTop:15}}>출퇴근 기록표</Text>
+                        <Text style={{fontSize: 40}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 30,marginTop:15}}>급여계산표</Text>
-                        <Text style={{fontSize: 50}}>{arrow}</Text>
+                        <Text style={{fontSize: 25,marginTop:15}}>급여계산표</Text>
+                        <Text style={{fontSize: 40}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 30,marginTop:15}}>출근일지</Text>
-                        <Text style={{fontSize: 50}}>{arrow}</Text>
+                        <Text style={{fontSize: 25,marginTop:15}}>출근일지</Text>
+                        <Text style={{fontSize: 40}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                 </View>
