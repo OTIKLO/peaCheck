@@ -30,10 +30,41 @@ function Main({ navigation }) {
                 </View>
                 <View style={styles.notice}>
                     <View style={styles.notice_top}>
-                        <Text style={{fontSize: 25,}}>고용 공지사항</Text>
+                        <Text style={{ fontSize: 25, }}>고용 공지사항</Text>
                         <TouchableOpacity>
-                            <Text style={{fontSize: 15, marginTop: 10}}>모두 보기</Text>
+                            <Text style={{ fontSize: 15, marginTop: 10 }}>모두 보기</Text>
                         </TouchableOpacity>
+                    </View>
+                    <View>
+                        <View style={styles.notice_body}>
+                            <View style={{ margin: 10, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={styles.shoplogo}>
+                                    <Image source={mc} style={{ width: '80%', height: '80%'}}></Image>
+                                </View>
+                                <View>
+                                    <Text style={{ fontWeight: "600", fontSize: 17 }}>맥도날드 송도 GSD</Text>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text>송도동</Text>
+                                    <Text style={{marginLeft: 10}}>2022년 10월 9일 오후 8:18</Text>
+                                </View>
+                                <Text>06 : 00 AM ~ 12 : 00 PM</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.notice_body}>
+                            <View style={{ margin: 10, alignItems: 'center', flexDirection: 'row' }}>
+                                <View style={styles.shoplogo}>
+                                </View>
+                                <View>
+                                    <Text style={{ fontWeight: "600", fontSize: 17 }}>송도CU편의점</Text>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text>송도동</Text>
+                                    <Text style={{marginLeft: 10}}>2022년 10월 7일 오후 3:54</Text>
+                                </View>
+                                <Text>24 : 00 PM ~ 06 : 00 AM</Text>
+                                </View>
+                            </View>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -71,8 +102,8 @@ const styles = StyleSheet.create({
     },
     body_shops: {
         flexDirection: "row",
-        borderBottomWidth: 1,
-        borderBottomColor: 'black',
+        borderBottomWidth: 5,
+        borderBottomColor: theme.green,
     },
     shop: {
         marginLeft: 10,
@@ -85,19 +116,35 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     body_shop: {
-        alignItems:'center',
+        alignItems: 'center',
         marginBottom: 15,
     },
     notice_top: {
         marginTop: 10,
         marginLeft: 10,
         marginRight: 20,
+        marginBottom: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     notice: {
         height: '100%',
-    }
+    },
+    notice_body:{
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: theme.light_green,
+        backgroundColor: 'white'
+    },
+    shoplogo:{
+        width: 100,
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: theme.green,
+        borderWidth: 2,
+        marginRight: 10,
+    },
 });
 
 export default Main;
