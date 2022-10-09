@@ -5,7 +5,6 @@ import user from '../assets/images/icon/user.png';
 import { AntDesign } from '@expo/vector-icons'; //플러스 아이콘
 
 function Shop_notice({ navigation }) {
-    const arrow = ">";
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -43,7 +42,7 @@ function Shop_notice({ navigation }) {
                     </View>
                 </ScrollView>
                 <View style={styles.footer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Shop_notice_add')}>
                         <AntDesign style={styles.plusbtn} name="plussquareo" size={40} color="black" />
                     </TouchableOpacity>
                 </View>

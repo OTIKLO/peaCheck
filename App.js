@@ -12,11 +12,12 @@ import Shop_update from "./screens/Shop_update";
 import Shop_insert from "./screens/Shop_insert";
 import Shop from "./screens/Shop";
 import Shop_notice from "./screens/Shop_notice";
-import myinfo_insert from "./screens/Myinfo_insert";
+import Shop_notice_add from "./screens/Shop_notice_add";
+import Myinfo_insert from "./screens/Myinfo_insert";
 import Chat from "./screens/Chat";
 import Chatroom from "./screens/Chatroom";
 import Mypage from "./screens/Mypage";
-import myinfo_update from "./screens/Myinfo_update";
+import Myinfo_update from "./screens/Myinfo_update";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ const MainScreen = () => (
     <MainStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
     <MainStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
     <MainStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
+    <MainStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();
@@ -42,7 +44,7 @@ const MypageStack = createStackNavigator();
 const MypageScreen = () => (
   <MypageStack.Navigator>
     <MypageStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false }} />
-    <MypageStack.Screen name="Myinfo_update" component={myinfo_update} options={{ headerShown: false }} />
+    <MypageStack.Screen name="Myinfo_update" component={Myinfo_update} options={{ headerShown: false }} />
   </MypageStack.Navigator>
 );
 const TabNavigator = () => (
@@ -78,7 +80,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Start">
         <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
-        <Stack.Screen name="Myinfo_insert" component={myinfo_insert} options={{ headerShown: false }} />
+        <Stack.Screen name="Myinfo_insert" component={Myinfo_insert} options={{ headerShown: false }} />
         <Stack.Screen name="Tab" component={TabNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
