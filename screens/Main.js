@@ -31,7 +31,7 @@ function Main({ navigation }) {
                 <View style={styles.notice}>
                     <View style={styles.notice_top}>
                         <Text style={{ fontSize: 25, }}>고용 공지사항</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Employ_notice')}>
                             <Text style={{ fontSize: 15, marginTop: 10 }}>모두 보기</Text>
                         </TouchableOpacity>
                     </View>
@@ -47,7 +47,7 @@ function Main({ navigation }) {
                                     <Text>송도동</Text>
                                     <Text style={{marginLeft: 10}}>2022년 10월 9일 오후 8:18</Text>
                                 </View>
-                                <Text>06 : 00 AM ~ 12 : 00 PM</Text>
+                                <Text>06 : 00 AM ~ 02 : 00 PM</Text>
                                 </View>
                             </View>
                         </View>
@@ -61,7 +61,7 @@ function Main({ navigation }) {
                                     <Text>송도동</Text>
                                     <Text style={{marginLeft: 10}}>2022년 10월 7일 오후 3:54</Text>
                                 </View>
-                                <Text>24 : 00 PM ~ 06 : 00 AM</Text>
+                                <Text>00 : 00 AM ~ 06 : 00 AM</Text>
                                 </View>
                             </View>
                         </View>
