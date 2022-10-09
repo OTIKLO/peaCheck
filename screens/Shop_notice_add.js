@@ -1,8 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput} from "react-native";
 import { theme } from "../Color";
 
-function Shop_notice({ navigation }) {
+function Shop_notice_add({ navigation }) {
+    const done = () => {
+        navigation.navigate('Shop_notice')
+    };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -13,7 +16,11 @@ function Shop_notice({ navigation }) {
                     <View style={{margin: 10, borderLeftWidth: 2, borderColor: theme.green}}><Text></Text></View>
                     <Text style={styles.shopname}>본문</Text>
                 </View>
-                <View style={styles.footer}>
+                <View style={styles.body_center}>
+                    <TextInput style={styles.textinput} multiline={true}></TextInput>
+                </View>
+                <View style={styles.body_bottom}>
+                    <TouchableOpacity style={styles.notice_add} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -37,8 +44,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     body_top: {
-        borderBottomWidth: 1,
-        borderBottomColor: theme.green,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        borderWidth: 1,
+        borderColor: theme.dark_green,
+        backgroundColor: theme.light_green,
         flexDirection: 'row',
     },
     shopname: {
@@ -46,22 +57,30 @@ const styles = StyleSheet.create({
         fontWeight:"600",
         marginTop:5,
     },
-    notice: {
-        backgroundColor:'#F4FAE4',
-        height: '75%'
+    body_center: {
+        height: '75%',
+        marginLeft: 20,
+        marginRight: 20,
+        borderWidth: 1,
+        borderColor: theme.dark_green,
+        backgroundColor: '#F4FAE4',
+        padding: 10,
     },
-    notice_body:{
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
-        borderColor: theme.light_green,
-        backgroundColor: 'white'
+    textinput:{
+        fontSize: 18,
     },
-    footer:{
-        alignItems:'flex-end',
-        justifyContent:'center',
-        height:70,
-        marginRight:20,
-    }
+    notice_add: {
+        marginLeft: 20,
+        marginRight: 20,
+        height: 40,
+        backgroundColor: theme.dark_green,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    btntext: {
+        fontSize: 20,
+        color: "#ffffff",
+    },
 });
 
-export default Shop_notice;
+export default Shop_notice_add;
