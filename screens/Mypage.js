@@ -23,7 +23,7 @@ function Mypage({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.mypage}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Today')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Today_check')}>
                     <View style={styles.menu}>
                         <Text style={{fontSize: 25,marginTop:15}}>오늘근무</Text>
                         <Text style={{fontSize: 40}}>{arrow}</Text>

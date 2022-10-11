@@ -18,7 +18,7 @@ function Shop({ navigation }) {
                             <Image source={mc} style={{ width:'100%', height: '100%'}} />
                         </View>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Today')}>
                         <View style={styles.shopbutton}>
                             <Text style={{ color:'white', fontSize:20}}>출퇴근</Text>
                         </View>

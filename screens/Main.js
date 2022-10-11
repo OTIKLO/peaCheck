@@ -9,7 +9,7 @@ function Main({ navigation }) {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.titleText}>
-                    완두체쿠
+                    완두체크
                 </Text>
                 <TouchableOpacity onPress={() => navigation.navigate('Shop_management')}>
                     <AntDesign style={styles.plusbtn} name="plussquareo" size={40} color="black" />

@@ -22,6 +22,7 @@ import Mypage from "./screens/Mypage";
 import Myinfo_update from "./screens/Myinfo_update";
 import Today from "./screens/Today";
 import Employ_notice_detail from "./screens/Employ_notice_detail";
+import Today_check from "./screens/Today_check";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -38,6 +39,7 @@ const MainScreen = () => (
     <MainStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
     <MainStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
     <MainStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
+    <MainStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();
@@ -52,7 +54,7 @@ const MypageScreen = () => (
   <MypageStack.Navigator>
     <MypageStack.Screen name="Mypage" component={Mypage} options={{ headerShown: false }} />
     <MypageStack.Screen name="Myinfo_update" component={Myinfo_update} options={{ headerShown: false }} />
-    <MypageStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
+    <MypageStack.Screen name="Today_check" component={Today_check} options={{ headerShown: false }} />
   </MypageStack.Navigator>
 );
 const TabNavigator = () => (
