@@ -21,6 +21,12 @@ function Employ_notice_detail({ navigation }) {
                 <View style={styles.value}>
                     <Text style={styles.textinput}>2022년 10월 20일</Text>
                 </View>
+                <View style={styles.title}>
+                    <Text style={styles.titletext}>일당</Text>
+                </View>
+                <View style={styles.value}>
+                    <Text style={styles.textinput}>70,000</Text>
+                </View>
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginRight: 20 }}>
                     <View style={styles.timetitle}>
                         <Text style={styles.titletext}>출근 시간</Text>

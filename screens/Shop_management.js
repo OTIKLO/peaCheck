@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     shop: {
         marginTop: 20,
         backgroundColor: "white",
-        borderRadius: 20,
         marginRight: 10,
         marginLeft: 10,
     },

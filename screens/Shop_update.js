@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         margin: 20,
         marginBottom: "30%",
         backgroundColor: '#E9FCB6',
-        borderRadius: 40,
     },
     text: {
         marginTop: 10,
