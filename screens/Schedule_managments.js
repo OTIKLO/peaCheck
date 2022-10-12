@@ -42,7 +42,7 @@ function Schedule_managments({ navigation }) {
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>16 : 00 PM ~ 22 : 00 PM</Text>
                                 </View>
-                                <Text></Text>
+                                <Text>근무자 : 장민수</Text>
                             </View>
                             <View>
                                 <TouchableOpacity style={styles.schedule_update}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
@@ -58,7 +58,7 @@ function Schedule_managments({ navigation }) {
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>22 : 00 PM ~ 08 : 00 AM</Text>
                                 </View>
-                                <Text>황의충 대타 스케줄</Text>
+                                <Text>근무자 : 장민수</Text>
                             </View>
                             <View>
                                 <TouchableOpacity style={styles.schedule_update}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
@@ -74,7 +74,7 @@ function Schedule_managments({ navigation }) {
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>16 : 00 PM ~ 22 : 00 PM</Text>
                                 </View>
-                                <Text></Text>
+                                <Text>근무자 : 장민수</Text>
                             </View>
                             <View>
                                 <TouchableOpacity style={styles.schedule_update}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
