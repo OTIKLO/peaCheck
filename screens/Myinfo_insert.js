@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { theme } from "../Color";
 
-function Myinfodd_insert({ navigation }) {
+function Myinfo_insert({ navigation }) {
     const done = () => {
         navigation.navigate('Tab');
     };
