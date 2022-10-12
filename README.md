@@ -177,6 +177,8 @@ export default function Home() {
   </TouchableOpacity>	
   ```
   
+  https://taehoon95.tistory.com/116
+  
   + ### React Native Select Dropdown
 
 https://www.npmjs.com/package/react-native-select-dropdown
