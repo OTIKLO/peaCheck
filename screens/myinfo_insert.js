@@ -65,27 +65,29 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     header: {
-        height: 90,
-        backgroundColor: theme.light_green,
-        alignItems: 'center'
+        height: 80,
+        backgroundColor: 'white',
+        borderBottomWidth:1,
+        borderBottomColor: '#cccccc',
     },
     headerText: {
+        marginLeft: 30,
         marginTop: 40,
-        fontSize: 25,
+        fontSize: 20,
     },
     myinfo: {
-        backgroundColor: theme.light_green,
+        backgroundColor: 'white',
         height: '100%',
     },
     form: {
         margin: 20,
         marginBottom: "30%",
-        backgroundColor: '#E9FCB6',
+        backgroundColor: 'white',
     },
     text: {
         marginTop: 10,
         marginLeft: 20,
-        fontSize: 20,
+        fontSize: 17,
     },
     input: {
         height: 40,
@@ -96,7 +98,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         backgroundColor: 'white',
         borderWidth: 1,
-        borderColor: theme.light_green,
+        borderColor: '#aaaaaa',
+        borderRadius: 5,
     },
     addressinput: {
         height: 40,
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         marginBottom: 40,
         height: 40,
-        backgroundColor: theme.dark_green,
+        backgroundColor: theme.green,
         alignItems: "center",
         justifyContent: "center",
     },

@@ -30,7 +30,7 @@ function Main({ navigation }) {
                 </View>
                 <View style={styles.notice}>
                     <View style={styles.notice_top}>
-                        <Text style={{ fontSize: 25, }}>고용 공지사항</Text>
+                        <Text style={{ fontSize: 20, }}>고용 공지사항</Text>
                         <TouchableOpacity onPress={() => navigation.navigate('Employ_notice')}>
                             <Text style={{ fontSize: 15, marginTop: 10 }}>모두 보기</Text>
                         </TouchableOpacity>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     body_shops: {
         flexDirection: "row",
-        borderBottomWidth: 5,
+        borderBottomWidth: 2,
         borderBottomColor: theme.green,
     },
     shop: {

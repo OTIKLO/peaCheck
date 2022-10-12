@@ -25,26 +25,26 @@ function Mypage({ navigation }) {
                 <View style={styles.mypage}>
                     <TouchableOpacity onPress={() => navigation.navigate('Today_check')}>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 25,marginTop:15}}>오늘근무</Text>
-                        <Text style={{fontSize: 40}}>{arrow}</Text>
+                        <Text style={{fontSize: 20,marginTop:15}}>오늘근무</Text>
+                        <Text style={{fontSize: 30}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 25,marginTop:15}}>출퇴근 기록표</Text>
-                        <Text style={{fontSize: 40}}>{arrow}</Text>
+                        <Text style={{fontSize: 20,marginTop:15}}>출퇴근 기록표</Text>
+                        <Text style={{fontSize: 30}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 25,marginTop:15}}>급여계산표</Text>
-                        <Text style={{fontSize: 40}}>{arrow}</Text>
+                        <Text style={{fontSize: 20,marginTop:15}}>급여계산표</Text>
+                        <Text style={{fontSize: 30}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <View style={styles.menu}>
-                        <Text style={{fontSize: 25,marginTop:15}}>출근일지</Text>
-                        <Text style={{fontSize: 40}}>{arrow}</Text>
+                        <Text style={{fontSize: 20,marginTop:15}}>출근일지</Text>
+                        <Text style={{fontSize: 30}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
                 </View>
@@ -57,13 +57,15 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
-        height: 90,
-        backgroundColor: theme.light_green,
-        alignItems: 'center'
+        height: 80,
+        backgroundColor: 'white',
+        borderBottomWidth:1,
+        borderBottomColor: '#cccccc',
     },
     headerText: {
+        marginLeft: 30,
         marginTop: 40,
-        fontSize: 25,
+        fontSize: 20,
     },
     body: {
         backgroundColor: 'white',
@@ -73,9 +75,9 @@ const styles = StyleSheet.create({
         borderBottomColor: theme.green,
     },
     myinfotop: {
+        justifyContent:'center',
         flexDirection:'row',
         marginTop: 20,
-        marginLeft: 20,
     },
     myinfobottom:{
         marginTop: 20,
@@ -93,6 +95,7 @@ const styles = StyleSheet.create({
         marginRight: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems:'center',
     },
     mypage: {
         backgroundColor:'#F4FAE4',

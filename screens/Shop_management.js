@@ -44,13 +44,15 @@ const styles = StyleSheet.create({
       backgroundColor: 'white'
     },
     header: {
-      height: 90,
-      backgroundColor: theme.light_green,
-      alignItems:'center'
+        height: 80,
+        backgroundColor: 'white',
+        borderBottomWidth:1,
+        borderBottomColor: '#cccccc',
     },
     headerText: {
+        marginLeft: 30,
         marginTop: 40,
-        fontSize: 25,
+        fontSize: 20,
     },
     shopmanagement: {
         backgroundColor: '#D4EB96',
