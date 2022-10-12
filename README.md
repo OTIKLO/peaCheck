@@ -156,3 +156,23 @@ export default function Home() {
   );
 }
 ```
+```javascript
+<TouchableOpacity onPress={showDatePicker}>
+      <TextInput
+        pointerEvents="none"
+        style={styles.textInput}
+        placeholder={placeholder}
+        placeholderTextColor="#000000"
+        underlineColorAndroid="transparent"
+        editable={false}
+        value={text}
+      />
+      <DateTimePickerModal
+        headerTextIOS={placeholder}
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
+  </TouchableOpacity>	
+  ```
