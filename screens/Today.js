@@ -8,7 +8,7 @@ function Today({ navigation }) {
     const atdAlert = () =>
      Alert.alert(                    // 말그대로 Alert를 띄운다
       "출퇴근",                    // 첫번째 text: 타이틀 제목
-      "05:52분 출근하시겠습니까?.",                         // 두번째 text: 그 밑에 작은 제목
+      "05:52분 출근하시겠습니까?",                         // 두번째 text: 그 밑에 작은 제목
       [                              // 버튼 배열
         {
           text: "아니요"

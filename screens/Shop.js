@@ -20,7 +20,12 @@ function Shop({ navigation }) {
                     </View>
                     <TouchableOpacity onPress={() => navigation.navigate('Today')}>
                         <View style={styles.shopbutton}>
-                            <Text style={{ color:'white', fontSize:20}}>출퇴근</Text>
+                            <Text style={{ color:'white', fontSize:20}}>출퇴근(직원용)</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Staff_managments')}>
+                        <View style={styles.shopbutton}>
+                            <Text style={{ color:'white', fontSize:20}}>직원관리(사장용)</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

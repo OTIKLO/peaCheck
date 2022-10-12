@@ -24,6 +24,12 @@ function Employ_notice_add({ navigation }) {
                 <View style={styles.value}>
                     <TextInput style={styles.textinput} placeholder="2022년 10월 09일"></TextInput>
                 </View>
+                <View style={styles.title}>
+                    <Text style={styles.titletext}>일당</Text>
+                </View>
+                <View style={styles.value}>
+                    <TextInput style={styles.textinput} placeholder= "70,000원"></TextInput>
+                </View>
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginRight: 20 }}>
                     <View style={styles.timetitle}>
                         <Text style={styles.titletext}>출근 시간</Text>

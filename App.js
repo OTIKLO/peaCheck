@@ -23,6 +23,9 @@ import Myinfo_update from "./screens/Myinfo_update";
 import Today from "./screens/Today";
 import Employ_notice_detail from "./screens/Employ_notice_detail";
 import Today_check from "./screens/Today_check";
+import Staff_managments from "./screens/Staff_managments";
+import Staff from "./screens/Staff";
+import Schedule_managments from "./screens/Schedule_managments";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -40,6 +43,9 @@ const MainScreen = () => (
     <MainStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
     <MainStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
     <MainStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
+    <MainStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
+    <MainStack.Screen name="Staff" component={Staff} options={{ headerShown: false }} />
+    <MainStack.Screen name="Schedule_managments" component={Schedule_managments} options={{ headerShown: false }} />
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();
