@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, TextInput, Alert} from "react-native";
 import { theme } from "../Color";
-import mc from "../assets/images/mc.png";
 import { AntDesign } from '@expo/vector-icons'; //플러스 아이콘
 
 function Schedule_managments({ navigation }) {
@@ -34,10 +33,8 @@ function Schedule_managments({ navigation }) {
                 <ScrollView style={styles.notice}>
                     <View style={styles.notice_body}>
                         <View style={styles.scheduleList}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View style={{width:220}}>
+                            <View style={{height: 55, margin: 10, borderLeftWidth: 2, borderColor: theme.green}}><Text></Text></View>
+                            <View style={{width:280}}>
                                 <Text style={{ fontWeight: "600", fontSize: 17 }}>10월 3일 ~ 7일</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>16 : 00 PM ~ 22 : 00 PM</Text>
@@ -50,10 +47,8 @@ function Schedule_managments({ navigation }) {
                             </View>
                         </View>
                         <View style={styles.scheduleList}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View style={{width:220}}>
+                            <View style={{height: 55, margin: 10, borderLeftWidth: 2, borderColor: theme.green}}><Text></Text></View>
+                            <View style={{width:280}}>
                                 <Text style={{ fontWeight: "600", fontSize: 17 }}>10월 9일</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>22 : 00 PM ~ 08 : 00 AM</Text>
@@ -66,10 +61,8 @@ function Schedule_managments({ navigation }) {
                             </View>
                         </View>
                         <View style={styles.scheduleList}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View style={{width:220}}>
+                            <View style={{height: 55, margin: 10, borderLeftWidth: 2, borderColor: theme.green}}><Text></Text></View>
+                            <View style={{width:280}}>
                                 <Text style={{ fontWeight: "600", fontSize: 17 }}>10월 10일 ~ 14일</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>16 : 00 PM ~ 22 : 00 PM</Text>
@@ -132,15 +125,6 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         margin: 10,
         textAlign: 'center'
-    },
-    shoplogo: {
-        width: 100,
-        height: 70,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderColor: theme.green,
-        borderWidth: 2,
-        marginRight: 10,
     },
     notice: {
         backgroundColor:'#F4FAE4',

@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, TextInput } from "react-native";
 import { theme } from "../Color";
 import user from '../assets/images/icon/user.png';
-import mc from "../assets/images/mc.png";
 
 function Staff_managments({ navigation }) {
     const arrow = ">";
@@ -52,10 +51,8 @@ function Staff_managments({ navigation }) {
                         <TextInput style={styles.scheduleDate}>       9일      ▼</TextInput>
                     </View>
                     <View style={styles.scheduleList}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View style={{width:220}}>
+                            <Image source={user} style={styles.img}/>
+                            <View style={{width:220, marginLeft: 10}}>
                                 <Text style={{ fontWeight: "600", fontSize: 17 }}>10월 9일</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>10 : 00 AM ~ 16 : 00 PM</Text>
@@ -64,10 +61,8 @@ function Staff_managments({ navigation }) {
                             </View>
                     </View>
                     <View style={styles.scheduleList}>
-                            <View style={styles.shoplogo}>
-                                <Image source={mc} style={{ width: '80%', height: '80%' }}></Image>
-                            </View>
-                            <View style={{width:220}}>
+                            <Image source={user} style={styles.img}/>
+                            <View style={{width:220,  marginLeft: 10}}>
                                 <Text style={{ fontWeight: "600", fontSize: 17 }}>10월 9일</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text>16 : 00 PM ~ 22 : 00 AM</Text>
@@ -169,15 +164,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#cccccc',
         backgroundColor: 'white'
-    },
-    shoplogo: {
-        width: 100,
-        height: 70,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderColor: theme.green,
-        borderWidth: 2,
-        marginRight: 10,
     },
 });
 
