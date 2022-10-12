@@ -176,3 +176,11 @@ export default function Home() {
       />
   </TouchableOpacity>	
   ```
+  
+  + ### React Native Select Dropdown
+
+https://www.npmjs.com/package/react-native-select-dropdown
+
+```
+npm install react-native-select-dropdown
+```
