@@ -339,3 +339,80 @@ const [dosi, setDosi] = useState([]);
         }, 1000);
     }, []);
 ```
+
+```javascript
+<View style={{ flexDirection: "row", marginLeft: 20, marginRight: 20, }}>
+                        <SelectDropdown
+                            data={dosi}
+                            onSelect={(selectedItem, index) => {
+                                console.log(selectedItem, index);
+                                citiesDropdownRef.current.reset();
+                                setSigungu([]);
+                                setSigungu(selectedItem.sigungu);
+                            }}
+                            defaultButtonText={'도/시'}
+                            buttonTextAfterSelection={(selectedItem, index) => {
+                                return selectedItem.title;
+                            }}
+                            rowTextForSelection={(item, index) => {
+                                return item.title;
+                            }}
+                            buttonStyle={styles.dropdown1BtnStyle}
+                            buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                            dropdownIconPosition={'right'}
+                            dropdownStyle={styles.dropdown1DropdownStyle}
+                            rowStyle={styles.dropdown1RowStyle}
+                            rowTextStyle={styles.dropdown1RowTxtStyle}
+                        />
+                        <SelectDropdown
+                            ref={citiesDropdownRef}
+                            data={sigungu}
+                            onSelect={(selectedItem, index) => {
+                                console.log(selectedItem, index);
+                            }}
+                            defaultButtonText={'시/군/구'}
+                            buttonTextAfterSelection={(selectedItem, index) => {
+                                return selectedItem.title;
+                            }}
+                            rowTextForSelection={(item, index) => {
+                                return item.title;
+                            }}
+                            buttonStyle={styles.dropdown2BtnStyle}
+                            buttonTextStyle={styles.dropdown2BtnTxtStyle}
+                            dropdownIconPosition={'right'}
+                            dropdownStyle={styles.dropdown2DropdownStyle}
+                            rowStyle={styles.dropdown2RowStyle}
+                            rowTextStyle={styles.dropdown2RowTxtStyle}
+                        />
+                    </View>
+```
+
+```javascript
+dropdown1BtnStyle: {
+        height: 40,
+        flex: 1,
+        marginTop: 5,
+        fontSize: 20,
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#aaaaaa',
+        borderRadius: 5,
+    },
+    dropdown1BtnTxtStyle: { color: 'black', textAlign: 'left' },
+    dropdown1DropdownStyle: { backgroundColor: '#EFEFEF' },
+    dropdown1RowStyle: { backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5' },
+    dropdown1RowTxtStyle: { color: '#444', textAlign: 'left' },
+    dropdown2BtnStyle: {
+        height: 40,
+        flex: 1,
+        marginTop: 5,
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#aaaaaa',
+        borderRadius: 5,
+    },
+    dropdown2BtnTxtStyle: { color: 'black', textAlign: 'left', fontSize: 17, },
+    dropdown2DropdownStyle: { backgroundColor: '#EFEFEF' },
+    dropdown2RowStyle: { backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5' },
+    dropdown2RowTxtStyle: { color: '#444', textAlign: 'left' },
+```
