@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import SelectDropdown from 'react-native-select-dropdown';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { theme } from "../Color";
-import SelectDropdown from 'react-native-select-dropdown';
+
 
 function Shop_insert({ navigation }) {
     const done = () => {
@@ -237,8 +238,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: "#ffffff",
     },
-    dropdownsRow: { flexDirection: 'row', width: '100%', paddingHorizontal: '5%' },
-
     dropdown1BtnStyle: {
         height: 40,
         flex: 1,
