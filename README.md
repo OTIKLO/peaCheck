@@ -416,3 +416,18 @@ dropdown1BtnStyle: {
     dropdown2RowStyle: { backgroundColor: '#EFEFEF', borderBottomColor: '#C5C5C5' },
     dropdown2RowTxtStyle: { color: '#444', textAlign: 'left' },
 ```
+
++ ### 그라데이션
+
+```
+npm install react-native-linear-gradient
+npm install expo-linear-gradient
+```
+
+```javascript
+import { LinearGradient } from 'expo-linear-gradient'
+
+  <LinearGradient style={styles.container} colors={['#5f0d80', '#7c22a1', '#c487de']}>
+    <Text style={styles.test_text}>[내용]</Text>
+  </LinearGradient>
+```
