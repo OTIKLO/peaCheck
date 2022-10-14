@@ -43,7 +43,7 @@ function Main({ navigation }) {
                                 </View>
                                 <View>
                                     <Text style={{ fontWeight: "600", fontSize: 17 }}>맥도날드 송도 GSD</Text>
-                                <View style={{ flexDirection: 'row' }}>
+                                <View style={{ flexDirection: 'row' }}> 
                                     <Text>송도동</Text>
                                     <Text style={{marginLeft: 10}}>2022년 10월 9일 오후 8:18</Text>
                                 </View>
