@@ -26,6 +26,8 @@ import Today_check from "./screens/Today_check";
 import Staff_managments from "./screens/Staff_managments";
 import Staff from "./screens/Staff";
 import Schedule_managments from "./screens/Schedule_managments";
+import Schedule_insert from "./screens/Schedule_insert";
+import Schedule_update from "./screens/Schedule_update";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -46,6 +48,8 @@ const MainScreen = () => (
     <MainStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
     <MainStack.Screen name="Staff" component={Staff} options={{ headerShown: false }} />
     <MainStack.Screen name="Schedule_managments" component={Schedule_managments} options={{ headerShown: false }} />
+    <MainStack.Screen name="Schedule_insert" component={Schedule_insert} options={{headerShown: false}}/>
+    <MainStack.Screen name="Schedule_update" component={Schedule_update} options={{headerShown: false}}/>
   </MainStack.Navigator>
 );
 const ChatStack = createStackNavigator();

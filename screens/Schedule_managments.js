@@ -42,7 +42,7 @@ function Schedule_managments({ navigation }) {
                                 <Text>근무자 : 장민수</Text>
                             </View>
                             <View>
-                                <TouchableOpacity style={styles.schedule_update}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
+                                <TouchableOpacity style={styles.schedule_update} onPress={() => navigation.navigate('Schedule_update')}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
                                 <TouchableOpacity style={styles.schedule_delete} onPress={schAlert}><Text style={styles.btntext}>삭제</Text></TouchableOpacity>
                             </View>
                         </View>
@@ -77,7 +77,7 @@ function Schedule_managments({ navigation }) {
                     </View>
                 </ScrollView>
                 <View style={styles.footer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Schedule_insert')}>
                         <AntDesign style={styles.plusbtn} name="plussquareo" size={40} color="black" />
                     </TouchableOpacity>
                 </View>
