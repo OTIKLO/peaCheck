@@ -140,7 +140,7 @@ function Schedule_update({ navigation }) {
                             장민수
                         </TextInput>
                     </View>
-                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>수정</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
