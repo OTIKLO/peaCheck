@@ -71,7 +71,7 @@ function Schedule_update({ navigation }) {
                             style={styles.inputMain}
                             returnKeyType="next"
                         >
-                            주별로 등록
+                            일별로 등록
                         </Text>
                     </View>
                     <View style={{ flexDirection: 'row',justifyContent: 'space-between',paddingBottom: 20 }}>
