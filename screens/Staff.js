@@ -35,13 +35,13 @@ function Staff({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.mypage}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Commute_record')}>
                     <View style={styles.menu}>
                         <Text style={{fontSize: 20,marginTop:15}}>출퇴근 기록표</Text>
                         <Text style={{fontSize: 30}}>{arrow}</Text>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Salary_calculator')}>
                     <View style={styles.menu}>
                         <Text style={{fontSize: 20,marginTop:15}}>급여계산표</Text>
                         <Text style={{fontSize: 30}}>{arrow}</Text>
