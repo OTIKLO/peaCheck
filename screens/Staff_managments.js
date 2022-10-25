@@ -1,14 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, TextInput } from "react-native";
+import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { theme } from "../Color";
 import user from '../assets/images/icon/user.png';
 
 function Staff_managments({ navigation }) {
-    const arrow = ">";
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>직원 관리</Text>
+                <TouchableOpacity>
+                    <Text style={styles.headerText}>직원 관리</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={styles.headerText}>직원 현황</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.body}>
                 <View style={styles.body_top}>
@@ -81,6 +87,8 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     header: {
+        justifyContent: "space-between",
+        flexDirection: "row",
         height: 80,
         backgroundColor: 'white',
         borderBottomWidth:1,

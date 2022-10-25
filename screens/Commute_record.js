@@ -36,7 +36,9 @@ function Commute_record({ navigation }){
                     {bodyDatas.map(([storedName, values], index) => (
                         <View key={index} style={[styles.row, styles.borderStyle]}>
                             <View style={[styles.row]}>
-                                <Text style={{paddingVertical: 15, paddingHorizontal: 4, height: 50, width:'10%', marginLeft: 15, marginRight: 58}}>{storedName}</Text>
+                                <Text style={{paddingVertical: 15, paddingHorizontal: 4, height: 50, width:'10%', marginLeft: 15, marginRight: 58}}>
+                                    {storedName}
+                                </Text>
                                 {values.map((value, index2) => (
                                 <View key={index2} style={styles.row}>
                                     {value.map((text, index3) => {
