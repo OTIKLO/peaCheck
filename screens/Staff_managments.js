@@ -1,11 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, TextInput } from "react-native";
-import React, { useState } from "react";
-import React, { useEffect, useState } from "react";
 import { theme } from "../Color";
 import user from '../assets/images/icon/user.png';
 
 function Staff_managments({ navigation }) {
+    const arrow = ">";
     return (
         <View style={styles.container}>
             <View style={styles.header}>
