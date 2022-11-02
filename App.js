@@ -30,6 +30,7 @@ import Schedule_insert from "./screens/Schedule_insert";
 import Schedule_update from "./screens/Schedule_update";
 import Salary_calculator from "./screens/Salary_calculator";
 import Commute_record from "./screens/Commute_record";
+import Login from "./screens/Login";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -106,6 +107,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Start">
         <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
+        <MainStack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Myinfo_insert" component={Myinfo_insert} options={{ headerShown: false }} />
         <Stack.Screen name="Tab" component={TabNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>

@@ -35,7 +35,7 @@ function Myinfo_insert({ navigation }) {
     const placeholder = "날짜를 입력해주세요";
     const [text, onChangeText] = useState("");
     const done = () => {
-        navigation.navigate('Tab');
+        navigation.navigate('Login');
     };
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -49,7 +49,7 @@ function Myinfo_insert({ navigation }) {
 
     const handleConfirm = (date) => {
         hideDatePicker();
-        onChangeText(date.format("yyyy/MM/dd"));
+        onChangeText(date.format("yyyyMMdd"));
     };
     const [dosi, setDosi] = useState([]);
     const [sigungu, setSigungu] = useState([]);
@@ -176,6 +176,14 @@ function Myinfo_insert({ navigation }) {
                 <View style={styles.form}>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>이름</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
+                    <TextInput
+                        style={styles.input}
+                        returnKeyType="next"
+                    />
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>비밀번호</Text>
                         <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
                     </View>
                     <TextInput
