@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import SelectDropdown from 'react-native-select-dropdown';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from "react-native";
 import { theme } from "../Color";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import axios from "axios";
 
 Date.prototype.format = function(f) {
     if (!this.valueOf()) return " ";
@@ -32,11 +33,14 @@ String.prototype.zf = function(len){return "0".string(len - this.length) + this;
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 function Myinfo_insert({ navigation }) {
+    const [name, setId] = useState("");
+    const [password, setPassword] = useState("");
+    const [birthday, setBirthday] = useState("");
+    const [city, setCity] = useState("");
+    const [area, setArea] = useState("");
+    const [phone, setPhone] = useState("");
     const placeholder = "날짜를 입력해주세요";
-    const [text, onChangeText] = useState("");
-    const done = () => {
-        navigation.navigate('Login');
-    };
+    
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
     const showDatePicker = () => {
@@ -49,7 +53,7 @@ function Myinfo_insert({ navigation }) {
 
     const handleConfirm = (date) => {
         hideDatePicker();
-        onChangeText(date.format("yyyyMMdd"));
+        setBirthday(date.format("yyyyMMdd"));
     };
     const [dosi, setDosi] = useState([]);
     const [sigungu, setSigungu] = useState([]);
@@ -167,6 +171,41 @@ function Myinfo_insert({ navigation }) {
         }, 1000);
     }, []);
     
+    function save() {
+        if (name.trim() === "") {
+            Alert.alert("아이디 입력 확인", "아이디가 입력되지 않았습니다.");
+        } else if (password.trim() === "") {
+            Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
+        } else if (birthday.trim() === "") {
+            Alert.alert("생년월일 입력 확인", "생년월일이 입력되지 않았습니다.");
+        } else if (city.trim() === "") {
+            Alert.alert("주소 입력 확인", "도시가 입력되지 않았습니다.");
+        } else if (area.trim() === "") {
+            Alert.alert("주소 입력 확인", "지역이 입력되지 않았습니다.");
+        } else if (phone.trim() === "") {
+            Alert.alert("연락처 입력 확인", "연락처가 입력되지 않았습니다.");
+        } else {
+            axios.post("http://192.168.219.107:80/save",
+                null,
+                { params: { name: name, password: password, birthday: birthday, city: city, area: area, phone: phone} }
+            ).then(function (resp) {
+                console.log(resp.data);
+                if (resp.data !== null && resp.data != "") {
+                    console.log(resp.data)
+                    console.log("회원가입 성공");
+                    navigation.navigate('Login');
+                } else {
+                    console.log("회원가입 실패");
+                    Alert.alert("회원가입 실패", "아이디나 비밀번호를 확인하세요.");
+                    setId("");
+                    setPassword("");
+                }
+            }).catch(function (err) {
+                console.log(`Error Message: ${err}`);
+            })
+        }
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -181,6 +220,8 @@ function Myinfo_insert({ navigation }) {
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
+                        onChangeText={(name) => setId(name)}
+                        value={name}
                     />
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>비밀번호</Text>
@@ -189,6 +230,8 @@ function Myinfo_insert({ navigation }) {
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
+                        onChangeText={(password) => setPassword(password)}
+                        value={password}
                     />
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>생년월일</Text>
@@ -200,7 +243,7 @@ function Myinfo_insert({ navigation }) {
                             style={styles.input}
                             underlineColorAndroid="transparent"
                             editable={false}
-                            value={text}
+                            value={birthday}
                         />
                         <DateTimePickerModal
                             headerTextIOS={placeholder}
@@ -225,6 +268,7 @@ function Myinfo_insert({ navigation }) {
                             }}
                             defaultButtonText={'도/시'}
                             buttonTextAfterSelection={(selectedItem, index) => {
+                                setCity(selectedItem.title);
                                 return selectedItem.title;
                             }}
                             rowTextForSelection={(item, index) => {
@@ -236,6 +280,7 @@ function Myinfo_insert({ navigation }) {
                             dropdownStyle={styles.dropdown1DropdownStyle}
                             rowStyle={styles.dropdown1RowStyle}
                             rowTextStyle={styles.dropdown1RowTxtStyle}
+                            value={city}
                         />
                         <SelectDropdown
                             ref={citiesDropdownRef}
@@ -245,6 +290,7 @@ function Myinfo_insert({ navigation }) {
                             }}
                             defaultButtonText={'시/군/구'}
                             buttonTextAfterSelection={(selectedItem, index) => {
+                                setArea(selectedItem.title);
                                 return selectedItem.title;
                             }}
                             rowTextForSelection={(item, index) => {
@@ -256,23 +302,22 @@ function Myinfo_insert({ navigation }) {
                             dropdownStyle={styles.dropdown2DropdownStyle}
                             rowStyle={styles.dropdown2RowStyle}
                             rowTextStyle={styles.dropdown2RowTxtStyle}
+                            value={area}
                         />
                     </View>
-                    <Text style={styles.text}>상세주소</Text>
-                    <TextInput
-                        style={styles.input}
-                        returnKeyType="next"
-                    />
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>연락처</Text>
                         <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
                     </View>
                     <TextInput
                         style={styles.input}
-                        onSubmitEditing={done}
                         placeholder=" - 없이"
+                        onChangeText={(phone) => setPhone(phone)}
+                        value={phone}
                     />
-                    <TouchableOpacity style={styles.shopbtn_update} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_update} onPress={() => save()}>
+                        <Text style={styles.btntext}>등록</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
