@@ -39,6 +39,7 @@ function Myinfo_insert({ navigation }) {
     const [city, setCity] = useState("");
     const [area, setArea] = useState("");
     const [phone, setPhone] = useState("");
+    const [position, setPosition] = useState("");
     const placeholder = "날짜를 입력해주세요";
     
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -57,6 +58,7 @@ function Myinfo_insert({ navigation }) {
     };
     const [dosi, setDosi] = useState([]);
     const [sigungu, setSigungu] = useState([]);
+    const [relation, setRelation] = useState([]);
     const citiesDropdownRef = useRef();
 
     useEffect(() => {
@@ -168,6 +170,10 @@ function Myinfo_insert({ navigation }) {
                 { title: '제주', sigungu: [{ title: '서귀포시' }, { title: '제주시' }] },
                 { title: '전국', sigungu: [{ title: '전체' }] },
             ]);
+            setRelation([
+                {title: '사장'},
+                {title: '직원'}
+            ]);
         }, 1000);
     }, []);
     
@@ -184,10 +190,12 @@ function Myinfo_insert({ navigation }) {
             Alert.alert("주소 입력 확인", "지역이 입력되지 않았습니다.");
         } else if (phone.trim() === "") {
             Alert.alert("연락처 입력 확인", "연락처가 입력되지 않았습니다.");
+        } else if (position.trim() === "") {
+            Alert.alert("직급 입력 확인", "직급이 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.219.107:80/save",
+            axios.post("http://10.200.73.124:80/save",
                 null,
-                { params: { name: name, password: password, birthday: birthday, city: city, area: area, phone: phone} }
+                { params: { name: name, password: password, birthday: birthday, city: city, area: area, phone: phone, position: position} }
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
@@ -315,6 +323,33 @@ function Myinfo_insert({ navigation }) {
                         onChangeText={(phone) => setPhone(phone)}
                         value={phone}
                     />
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>직급</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
+                    <View style={{ flexDirection: "row", marginLeft: 20, marginRight: 20, }}>
+                        <SelectDropdown
+                            data={relation}
+                            onSelect={(selectedItem, index) => {
+                                console.log(selectedItem, index);
+                            }}
+                            defaultButtonText={'직급을 선택하세요'}
+                            buttonTextAfterSelection={(selectedItem, index) => {
+                                setPosition(selectedItem.title);
+                                return selectedItem.title;
+                            }}
+                            rowTextForSelection={(item, index) => {
+                                return item.title;
+                            }}
+                            buttonStyle={styles.dropdown1BtnStyle}
+                            buttonTextStyle={styles.dropdown1BtnTxtStyle}
+                            dropdownIconPosition={'right'}
+                            dropdownStyle={styles.dropdown1DropdownStyle}
+                            rowStyle={styles.dropdown1RowStyle}
+                            rowTextStyle={styles.dropdown1RowTxtStyle}
+                            value={position}
+                        />
+                    </View>
                     <TouchableOpacity style={styles.shopbtn_update} onPress={() => save()}>
                         <Text style={styles.btntext}>등록</Text>
                     </TouchableOpacity>

@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.219.107:80/login",
+            axios.post("http://10.200.73.124:80/login",
                 null,
                 { params: { name: name, password: password } }
             ).then(function (resp) {
