@@ -13,18 +13,18 @@ import logo from "../assets/images/logo.png";
 
 const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변수 navigation 넣어주기
 
-    const [name, setId] = useState("");
+    const [id, setId] = useState("");
     const [password, setPassword] = useState("");
 
     function login() {
-        if (name.trim() === "") {
+        if (id.trim() === "") {
             Alert.alert("아이디 입력 확인", "아이디가 입력되지 않았습니다.");
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
         } else {
-            axios.post("http://10.200.73.124:80/login",
+            axios.post("http://192.168.219.105/login",
                 null,
-                { params: { name: name, password: password } }
+                { params: { id: id, password: password } }
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
@@ -51,8 +51,8 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                     style={styles.textInput}
                     placeholder="아이디"
                     placeholderTextColor="#003f5c"
-                    onChangeText={(name) => setId(name)}
-                    value={name}
+                    onChangeText={(id) => setId(id)}
+                    value={id}
                 />
             </View>
             <View style={styles.inputView}>

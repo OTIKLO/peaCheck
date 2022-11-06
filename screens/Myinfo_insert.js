@@ -33,7 +33,8 @@ String.prototype.zf = function(len){return "0".string(len - this.length) + this;
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
 function Myinfo_insert({ navigation }) {
-    const [name, setId] = useState("");
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [birthday, setBirthday] = useState("");
     const [city, setCity] = useState("");
@@ -182,6 +183,8 @@ function Myinfo_insert({ navigation }) {
             Alert.alert("아이디 입력 확인", "아이디가 입력되지 않았습니다.");
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
+        } else if (password.trim() === "") {
+            Alert.alert("이름 입력 확인", "이름이 입력되지 않았습니다.");
         } else if (birthday.trim() === "") {
             Alert.alert("생년월일 입력 확인", "생년월일이 입력되지 않았습니다.");
         } else if (city.trim() === "") {
@@ -193,9 +196,9 @@ function Myinfo_insert({ navigation }) {
         } else if (position.trim() === "") {
             Alert.alert("직급 입력 확인", "직급이 입력되지 않았습니다.");
         } else {
-            axios.post("http://10.200.73.124:80/save",
+            axios.post("http://192.168.219.105/save",
                 null,
-                { params: { name: name, password: password, birthday: birthday, city: city, area: area, phone: phone, position: position} }
+                { params: { id: id, password: password, name: name, birthday: birthday, city: city, area: area, phone: phone, position: position} }
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
@@ -217,19 +220,19 @@ function Myinfo_insert({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>개인 정보 등록</Text>
+                <Text style={styles.headerText}>회원가입</Text>
             </View>
             <View style={styles.myinfo}>
                 <View style={styles.form}>
                     <View style={{ flexDirection: 'row' }}>
-                        <Text style={styles.text}>이름</Text>
+                        <Text style={styles.text}>아이디</Text>
                         <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
                     </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
-                        onChangeText={(name) => setId(name)}
-                        value={name}
+                        onChangeText={(id) => setId(id)}
+                        value={id}
                     />
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>비밀번호</Text>
@@ -240,6 +243,16 @@ function Myinfo_insert({ navigation }) {
                         returnKeyType="next"
                         onChangeText={(password) => setPassword(password)}
                         value={password}
+                    />
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>이름</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
+                    <TextInput
+                        style={styles.input}
+                        returnKeyType="next"
+                        onChangeText={(name) => setName(name)}
+                        value={name}
                     />
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.text}>생년월일</Text>

@@ -1,7 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, Text} from "react-native";
 import { theme } from "../Color";
-import kakao from "../assets/images/kakaologin.png";
 import logo from "../assets/images/logo.png";
 import { LinearGradient } from 'expo-linear-gradient'
 
@@ -13,8 +12,8 @@ function Start({ navigation }) {
         <Image source={logo} />
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Image source={kakao} />
+        <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.btntext}>완두체크 로그인</Text>
         </TouchableOpacity>
       </View>
     </LinearGradient>
@@ -37,6 +36,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  btntext: {
+    color: "#ffffff",
+  },
+  loginBtn: {
+    width: "50%",
+    borderRadius: 25,
+    height: 50,
+    backgroundColor: "#ff1493",
+    alignItems: "center",
+    justifyContent: "center",
+},
 });
 /*
 const styles = StyleSheet.create({
