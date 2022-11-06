@@ -179,11 +179,11 @@ function Myinfo_insert({ navigation }) {
     }, []);
     
     function save() {
-        if (name.trim() === "") {
+        if (id.trim() === "") {
             Alert.alert("아이디 입력 확인", "아이디가 입력되지 않았습니다.");
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
-        } else if (password.trim() === "") {
+        } else if (name.trim() === "") {
             Alert.alert("이름 입력 확인", "이름이 입력되지 않았습니다.");
         } else if (birthday.trim() === "") {
             Alert.alert("생년월일 입력 확인", "생년월일이 입력되지 않았습니다.");

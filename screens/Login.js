@@ -12,7 +12,6 @@ import {
 import logo from "../assets/images/logo.png";
 
 const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변수 navigation 넣어주기
-
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
 
@@ -67,7 +66,6 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                 />
             </View>
 
-            {/* TouchableOpacity == Anchor */}
             <TouchableOpacity
                 onPress={() => navigation.navigate('Myinfo_insert')}
             >

@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import SelectDropdown from 'react-native-select-dropdown';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from "react-native";
 import { theme } from "../Color";
+import axios from "axios";
 
 
 function Shop_insert({ navigation }) {
     const done = () => {
         navigation.navigate('Shop_management')
     };
+    const [name, setName] = useState("");
+    const [city, setCity] = useState("");
+    const [area, setArea] = useState("");
+    const [address, setAddress] = useState("");
+    const [phone, setPhone] = useState("");
+    const [sector, setSector] = useState("");
+
     const [dosi, setDosi] = useState([]);
     const [sigungu, setSigungu] = useState([]);
     const citiesDropdownRef = useRef();
@@ -95,6 +103,40 @@ function Shop_insert({ navigation }) {
             ]);
         }, 1000);
     }, []);
+
+    function save() {
+        if (name.trim() === "") {
+            Alert.alert("매장명 입력 확인", "매장명이 입력되지 않았습니다.");
+        } else if (city.trim() === "") {
+            Alert.alert("주소 입력 확인", "도시가 입력되지 않았습니다.");
+        } else if (area.trim() === "") {
+            Alert.alert("주소 입력 확인", "지역이 입력되지 않았습니다.");
+        } else if (address.trim() === "") {
+            Alert.alert("주소 입력 확인", "상세주소가 입력되지 않았습니다.");
+        } else if (phone.trim() === "") {
+            Alert.alert("연락처 입력 확인", "연락처가 입력되지 않았습니다.");
+        } else if (sector.trim() === "") {
+            Alert.alert("업종 입력 확인", "업종이 입력되지 않았습니다.");
+        } else {
+            axios.post("http://192.168.219.105/shop/save",
+                null,
+                { params: { name: name, city: city, area: area, address: address, phone: phone, sector: sector} }
+            ).then(function (resp) {
+                console.log(resp.data);
+                if (resp.data !== null && resp.data != "") {
+                    console.log(resp.data)
+                    console.log("매장등록 성공");
+                    navigation.navigate('Shop_management');
+                } else {
+                    console.log("매장등록 실패");
+                    Alert.alert("매장등록 실패", "비어있는 칸이 있는지 확인하세요.");
+                }
+            }).catch(function (err) {
+                console.log(`Error Message: ${err}`);
+            })
+        }
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -102,12 +144,20 @@ function Shop_insert({ navigation }) {
             </View>
             <View style={styles.shopinsert}>
                 <View style={styles.form}>
-                    <Text style={styles.text}>매장명</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>매장명</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
+                        onChangeText={(name) => setName(name)}
+                        value={name}
                     />
-                    <Text style={styles.text}>주소</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>주소</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
                     <View style={{ flexDirection: "row", marginLeft: 20, marginRight: 20, }}>
                         <SelectDropdown
                             data={dosi}
@@ -119,6 +169,7 @@ function Shop_insert({ navigation }) {
                             }}
                             defaultButtonText={'도/시'}
                             buttonTextAfterSelection={(selectedItem, index) => {
+                                setCity(selectedItem.title);
                                 return selectedItem.title;
                             }}
                             rowTextForSelection={(item, index) => {
@@ -130,6 +181,7 @@ function Shop_insert({ navigation }) {
                             dropdownStyle={styles.dropdown1DropdownStyle}
                             rowStyle={styles.dropdown1RowStyle}
                             rowTextStyle={styles.dropdown1RowTxtStyle}
+                            value={city}
                         />
                         <SelectDropdown
                             ref={citiesDropdownRef}
@@ -139,6 +191,7 @@ function Shop_insert({ navigation }) {
                             }}
                             defaultButtonText={'시/군/구'}
                             buttonTextAfterSelection={(selectedItem, index) => {
+                                setArea(selectedItem.title);
                                 return selectedItem.title;
                             }}
                             rowTextForSelection={(item, index) => {
@@ -150,24 +203,36 @@ function Shop_insert({ navigation }) {
                             dropdownStyle={styles.dropdown2DropdownStyle}
                             rowStyle={styles.dropdown2RowStyle}
                             rowTextStyle={styles.dropdown2RowTxtStyle}
+                            value={area}
                         />
                     </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
                         placeholder="상세주소"
+                        onChangeText={(address) => setAddress(address)}
+                        value={address}
                     />
-                    <Text style={styles.text}>전화번호</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>전화번호</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
                     <TextInput
                         style={styles.input}
                         returnKeyType="next"
+                        onChangeText={(phone) => setPhone(phone)}
+                        value={phone}
                     />
-                    <Text style={styles.text}>업종</Text>
+                     <View style={{ flexDirection: 'row' }}>
+                        <Text style={styles.text}>업종</Text>
+                        <Text style={{ color: 'red', marginTop: 13, marginLeft: 5 }}>필수</Text>
+                    </View>
                     <TextInput
                         style={styles.input}
-                        onSubmitEditing={done}
+                        onChangeText={(sector) => setSector(sector)}
+                        value={sector}
                     />
-                    <TouchableOpacity style={styles.shopbtn_insert} onPress={done}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.shopbtn_insert} onPress={() => save()}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
