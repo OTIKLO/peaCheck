@@ -107,7 +107,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Start">
         <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
-        <MainStack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+        <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Myinfo_insert" component={Myinfo_insert} options={{ headerShown: false }} />
         <Stack.Screen name="Tab" component={TabNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>

@@ -3,12 +3,10 @@ import SelectDropdown from 'react-native-select-dropdown';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from "react-native";
 import { theme } from "../Color";
 import axios from "axios";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Shop_insert({ navigation }) {
-    const done = () => {
-        navigation.navigate('Shop_management')
-    };
+    const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
     const [area, setArea] = useState("");
@@ -38,7 +36,7 @@ function Shop_insert({ navigation }) {
                 { title: '구리시' },{ title: '군포시' },{ title: '김포시' },{ title: '남양주시' },
                 { title: '수원시 영통구' },{ title: '수원시 장안구' },{ title: '수원시 팔달구' },
                 { title: '시흥시' },{ title: '안산시 단원구' },{ title: '안산시 상록구' }, { title: '안성시' },
-                { title: '안양시 동안구' },{ title: '안양시 만안구' },{ title: '양주시' },{ title: '양평군' },
+                { title: '안양시 동안구' },{ title: '안양시 만안구' },{ title: '양주시' },{ title: '양s평군' },
                 { title: '여주시' },{ title: '연천군' },{ title: '오산시' },{ title: '용인시 기흥구' },
                 { title: '용인시 수지구' },{ title: '용인시 처인구' },{ title: '의왕시' },{ title: '의정부시' },
                 { title: '이천시' },{ title: '파주시' },{ title: '평택시' },{ title: '포천시' },
@@ -104,6 +102,10 @@ function Shop_insert({ navigation }) {
         }, 1000);
     }, []);
 
+    AsyncStorage.getItem('user_id', (err, result) => {
+        setId(result);
+    });
+
     function save() {
         if (name.trim() === "") {
             Alert.alert("매장명 입력 확인", "매장명이 입력되지 않았습니다.");
@@ -118,9 +120,9 @@ function Shop_insert({ navigation }) {
         } else if (sector.trim() === "") {
             Alert.alert("업종 입력 확인", "업종이 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.219.105/shop/save",
+            axios.post("http://192.168.0.31/shop/save",
                 null,
-                { params: { name: name, city: city, area: area, address: address, phone: phone, sector: sector} }
+                { params: { id: id, name: name, city: city, area: area, address: address, phone: phone, sector: sector} }
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
@@ -231,6 +233,10 @@ function Shop_insert({ navigation }) {
                         style={styles.input}
                         onChangeText={(sector) => setSector(sector)}
                         value={sector}
+                    />
+                    <TextInput
+                        style={{width: 0, height: 0}}
+                        value={id}
                     />
                     <TouchableOpacity style={styles.shopbtn_insert} onPress={() => save()}><Text style={styles.btntext}>등록</Text></TouchableOpacity>
                 </View>

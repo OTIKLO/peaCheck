@@ -196,7 +196,7 @@ function Myinfo_insert({ navigation }) {
         } else if (position.trim() === "") {
             Alert.alert("직급 입력 확인", "직급이 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.219.105/save",
+            axios.post("http://192.168.0.31/save",
                 null,
                 { params: { id: id, password: password, name: name, birthday: birthday, city: city, area: area, phone: phone, position: position} }
             ).then(function (resp) {

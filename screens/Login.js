@@ -10,6 +10,8 @@ import {
     Alert
 } from "react-native";
 import logo from "../assets/images/logo.png";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 
 const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변수 navigation 넣어주기
     const [id, setId] = useState("");
@@ -21,7 +23,7 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.219.105/login",
+            axios.post("http://192.168.0.31/login",
                 null,
                 { params: { id: id, password: password } }
             ).then(function (resp) {
@@ -29,6 +31,10 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                 if (resp.data !== null && resp.data != "") {
                     console.log(resp.data)
                     console.log("로그인 성공");
+                    AsyncStorage.setItem('user_id', id, () => { //user_id변수로 id값 저장
+                        console.log('유저 id저장');
+                        console.log(id);
+                    });
                     navigation.navigate('Tab');
                 } else {
                     console.log("로그인 실패");
