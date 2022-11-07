@@ -7,7 +7,7 @@ import {
     TextInput,
     Text,
     TouchableOpacity,
-    Alert
+    Alert,
 } from "react-native";
 import logo from "../assets/images/logo.png";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -29,12 +29,19 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
-                    console.log(resp.data)
                     console.log("로그인 성공");
+                    const pos = resp.data.position;
+                    console.log("pos : " + resp.data.position);
                     AsyncStorage.setItem('user_id', id, () => { //user_id변수로 id값 저장
-                        console.log('유저 id저장');
-                        console.log(id);
+                        console.log("user_id : " + id);
                     });
+
+                   /*  if(pos === '사장'){
+                        navigation.navigate('OwnerMain');
+                    } else{
+                        navigation.navigate('StaffMain');
+                    } */
+
                     navigation.navigate('Tab');
                 } else {
                     console.log("로그인 실패");
@@ -71,7 +78,6 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                     secureTextEntry={true}
                 />
             </View>
-
             <TouchableOpacity
                 onPress={() => navigation.navigate('Myinfo_insert')}
             >

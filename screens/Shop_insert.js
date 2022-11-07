@@ -127,7 +127,6 @@ function Shop_insert({ navigation }) {
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
-                    console.log(resp.data)
                     console.log("매장등록 성공");
                     navigation.navigate('Shop_management');
                 } else {

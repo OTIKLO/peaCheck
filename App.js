@@ -31,10 +31,38 @@ import Schedule_update from "./screens/Schedule_update";
 import Salary_calculator from "./screens/Salary_calculator";
 import Commute_record from "./screens/Commute_record";
 import Login from "./screens/Login";
+import OwnerMain from "./screens/OwnerMain";
+import StaffMain from "./screens/StaffMain";
 
+/* const OwnerStack = createStackNavigator();
+const StaffStack = createStackNavigator(); */
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const MainStack = createStackNavigator();
+
+/* const OwnerMainScreen = () => (
+  <OwnerStack.Navigator>
+    <OwnerStack.Screen name="OwnerMain" component={OwnerMain} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Staff" component={Staff} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Schedule_managments" component={Schedule_managments} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="Schedule_insert" component={Schedule_insert} options={{headerShown: false}}/>
+    <OwnerStack.Screen name="Schedule_update" component={Schedule_update} options={{headerShown: false}}/>
+    <OwnerStack.Screen name="Salary_calculator" component={Salary_calculator} options={{headerShown: false}}/>
+    <OwnerStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
+  </OwnerStack.Navigator>
+); */
+
 const MainScreen = () => (
   <MainStack.Navigator>
     <MainStack.Screen name="Main" component={Main} options={{ headerShown: false }} />
