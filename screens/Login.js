@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import logo from "../assets/images/logo.png";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { axiosIp } from "../Axios";
  
-
 const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변수 navigation 넣어주기
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
         } else if (password.trim() === "") {
             Alert.alert("비밀번호 입력 확인", "비밀번호가 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.0.31/login",
+            axios.post(`http://${axiosIp.ip}/login`,
                 null,
                 { params: { id: id, password: password } }
             ).then(function (resp) {

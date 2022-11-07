@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from "reac
 import { theme } from "../Color";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import axios from "axios";
+import { axiosIp } from "../Axios";
 
 Date.prototype.format = function(f) {
     if (!this.valueOf()) return " ";
@@ -196,7 +197,7 @@ function Myinfo_insert({ navigation }) {
         } else if (position.trim() === "") {
             Alert.alert("직급 입력 확인", "직급이 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.0.31/save",
+            axios.post(`http://${axiosIp.ip}/save`,
                 null,
                 { params: { id: id, password: password, name: name, birthday: birthday, city: city, area: area, phone: phone, position: position} }
             ).then(function (resp) {

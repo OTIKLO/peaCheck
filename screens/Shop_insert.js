@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from "reac
 import { theme } from "../Color";
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { axiosIp } from "../Axios";
 
 function Shop_insert({ navigation }) {
     const [id, setId] = useState("");
@@ -120,7 +121,7 @@ function Shop_insert({ navigation }) {
         } else if (sector.trim() === "") {
             Alert.alert("업종 입력 확인", "업종이 입력되지 않았습니다.");
         } else {
-            axios.post("http://192.168.0.31/shop/save",
+            axios.post(`http://${axiosIp.ip}/shop/save`,
                 null,
                 { params: { id: id, name: name, city: city, area: area, address: address, phone: phone, sector: sector} }
             ).then(function (resp) {
