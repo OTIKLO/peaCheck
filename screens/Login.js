@@ -36,13 +36,13 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                         console.log("user_id : " + id);
                     });
 
-                   /*  if(pos === '사장'){
-                        navigation.navigate('OwnerMain');
+                    if(pos === '사장'){
+                        navigation.navigate('OTab');
                     } else{
-                        navigation.navigate('StaffMain');
-                    } */
+                        navigation.navigate('STab');
+                    }
 
-                    navigation.navigate('Tab');
+                   // navigation.navigate('Tab');
                 } else {
                     console.log("로그인 실패");
                     Alert.alert("로그인 실패", "아이디나 비밀번호를 확인하세요.");

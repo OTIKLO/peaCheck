@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image } from "react-native";
 import Start from "./screens/Start";
-import Main from "./screens/Main";
+//import Main from "./screens/Main";
 import Shop_management from "./screens/Shop_management";
 import Shop_update from "./screens/Shop_update";
 import Shop_insert from "./screens/Shop_insert";
@@ -34,13 +34,14 @@ import Login from "./screens/Login";
 import OwnerMain from "./screens/OwnerMain";
 import StaffMain from "./screens/StaffMain";
 
-/* const OwnerStack = createStackNavigator();
-const StaffStack = createStackNavigator(); */
-const Tab = createBottomTabNavigator();
+const OwnerStack = createStackNavigator();
+const StaffStack = createStackNavigator();
+const OTab = createBottomTabNavigator();
+const STab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-const MainStack = createStackNavigator();
+//const MainStack = createStackNavigator();
 
-/* const OwnerMainScreen = () => (
+const OwnerMainScreen = () => (
   <OwnerStack.Navigator>
     <OwnerStack.Screen name="OwnerMain" component={OwnerMain} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
@@ -61,9 +62,30 @@ const MainStack = createStackNavigator();
     <OwnerStack.Screen name="Salary_calculator" component={Salary_calculator} options={{headerShown: false}}/>
     <OwnerStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
   </OwnerStack.Navigator>
-); */
-
-const MainScreen = () => (
+);
+const StaffMainScreen = () => (
+  <StaffStack.Navigator>
+    <StaffStack.Screen name="StaffMain" component={StaffMain} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Staff" component={Staff} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Schedule_managments" component={Schedule_managments} options={{ headerShown: false }} />
+    <StaffStack.Screen name="Schedule_insert" component={Schedule_insert} options={{headerShown: false}}/>
+    <StaffStack.Screen name="Schedule_update" component={Schedule_update} options={{headerShown: false}}/>
+    <StaffStack.Screen name="Salary_calculator" component={Salary_calculator} options={{headerShown: false}}/>
+    <StaffStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
+  </StaffStack.Navigator>
+);
+/* const MainScreen = () => (
   <MainStack.Navigator>
     <MainStack.Screen name="Main" component={Main} options={{ headerShown: false }} />
     <MainStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
@@ -84,7 +106,7 @@ const MainScreen = () => (
     <MainStack.Screen name="Salary_calculator" component={Salary_calculator} options={{headerShown: false}}/>
     <MainStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
   </MainStack.Navigator>
-);
+); */
 const ChatStack = createStackNavigator();
 const ChatScreen = () => (
   <ChatStack.Navigator>
@@ -102,8 +124,8 @@ const MypageScreen = () => (
     <MypageStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
   </MypageStack.Navigator>
 );
-const TabNavigator = () => (
-  <Tab.Navigator
+const OTabNavigator = () => (
+  <OTab.Navigator
     screenOptions={({ route }) => ({
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
@@ -125,10 +147,38 @@ const TabNavigator = () => (
         );
       },
     })}>
-    <Tab.Screen name="Home" component={MainScreen} options={{ headerShown: false }} />
-    <Tab.Screen name="채팅" component={ChatScreen} options={{ headerShown: false }}/>
-    <Tab.Screen name="MyPage" component={MypageScreen} options={{ headerShown: false }}/>
-  </Tab.Navigator>
+    <OTab.Screen name="Home" component={OwnerMainScreen} options={{ headerShown: false }} />
+    <OTab.Screen name="채팅" component={ChatScreen} options={{ headerShown: false }}/>
+    <OTab.Screen name="MyPage" component={MypageScreen} options={{ headerShown: false }}/>
+  </OTab.Navigator>
+);
+const STabNavigator = () => (
+  <STab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+        if (route.name === 'Home') {
+          iconName = focused
+            ? require('./assets/images/icon/homec.png')
+            : require('./assets/images/icon/home.png');
+        } else if (route.name === '채팅') {
+          iconName = focused
+            ? require('./assets/images/icon/chatc.png')
+            : require('./assets/images/icon/chat.png');
+        } else if (route.name === 'MyPage') {
+          iconName = focused
+            ? require('./assets/images/icon/userc.png')
+            : require('./assets/images/icon/user.png');
+        }
+        return (
+          <Image source={iconName} style={{ width: 25, height: 25 }} />
+        );
+      },
+    })}>
+    <STab.Screen name="Home" component={StaffMainScreen} options={{ headerShown: false }} />
+    <STab.Screen name="채팅" component={ChatScreen} options={{ headerShown: false }}/>
+    <STab.Screen name="MyPage" component={MypageScreen} options={{ headerShown: false }}/>
+  </STab.Navigator>
 );
 function App() {
   return (
@@ -137,7 +187,8 @@ function App() {
         <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Myinfo_insert" component={Myinfo_insert} options={{ headerShown: false }} />
-        <Stack.Screen name="Tab" component={TabNavigator} options={{ headerShown: false }}/>
+        <Stack.Screen name="OTab" component={OTabNavigator} options={{ headerShown: false }}/>
+        <Stack.Screen name="STab" component={STabNavigator} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
