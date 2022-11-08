@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { AntDesign } from '@expo/vector-icons'; //플러스 아이콘
 import mc from "../assets/images/mc.png";
 import { theme } from "../Color";
+import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { axiosIp } from "../Axios";
+
 
 function OwnerMain({ navigation }) {
+    const [id, setId] = useState("");
+
+    useEffect(() => {
+        AsyncStorage.getItem('user_id', (err, result) => {
+            setId(result);
+            console.log("used_id : " + id);
+        });
+
+        axios.post(`http://${axiosIp.ip}/shop/find`,
+                null,
+                { params: { id: "test" } }
+            ).then(function (resp) {
+                console.log(resp.data);
+                if (resp.data !== null && resp.data != "") {
+                    console.log("매장찾기 성공");
+                } else {
+                    console.log("매장찾기 실패");
+                }
+            }).catch(function (err) {
+                console.log(`Error Message: ${err}`);
+            })
+    }, []);
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>

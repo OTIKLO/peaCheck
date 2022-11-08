@@ -29,12 +29,12 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
-                    console.log("로그인 성공");
-                    const pos = resp.data.position;
-                    console.log("pos : " + resp.data.position);
                     AsyncStorage.setItem('user_id', id, () => { //user_id변수로 id값 저장
                         console.log("user_id : " + id);
                     });
+                    console.log("로그인 성공");
+                    const pos = resp.data.position;
+                    console.log("pos : " + resp.data.position);
 
                     if(pos === '사장'){
                         navigation.navigate('OTab');
