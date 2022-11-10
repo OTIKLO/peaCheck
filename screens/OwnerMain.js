@@ -7,7 +7,6 @@ import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { axiosIp } from "../Axios";
 
-
 function OwnerMain({ navigation }) {
     const [id, setId] = useState("");
 
@@ -16,10 +15,9 @@ function OwnerMain({ navigation }) {
             setId(result);
             console.log("used_id : " + id);
         });
-
         axios.post(`http://${axiosIp.ip}/shop/find`,
                 null,
-                { params: { id: "test" } }
+                { params: { id: id } }
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {

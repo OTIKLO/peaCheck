@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변�
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
                     AsyncStorage.setItem('user_id', id, () => { //user_id변수로 id값 저장
-                        console.log("user_id : " + id);
+                        console.log("user_id 저장 완료");
                     });
                     console.log("로그인 성공");
                     const pos = resp.data.position;
