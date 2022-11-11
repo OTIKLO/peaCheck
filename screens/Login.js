@@ -12,6 +12,7 @@ import {
 import logo from "../assets/images/logo.png";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { axiosIp } from "../Axios";
+import OwnerMain from "./OwnerMain";
  
 const Login = ({ navigation }) => {       // 화면 이동을 위해 매개변수 navigation 넣어주기
     const [id, setId] = useState("");

@@ -11,10 +11,13 @@ function OwnerMain({ navigation }) {
     const [id, setId] = useState("");
 
     useEffect(() => {
-        AsyncStorage.getItem('user_id', (err, result) => {
-            setId(result);
-            console.log("used_id : " + id);
-        });
+        (()=>{
+            AsyncStorage.getItem('user_id', (err, result) => {
+                setId(result);
+                console.log("used_id : " + id);
+            });
+        })();
+
         axios.post(`http://${axiosIp.ip}/shop/find`,
                 null,
                 { params: { id: id } }

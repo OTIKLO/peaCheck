@@ -103,9 +103,12 @@ function Shop_insert({ navigation }) {
         }, 1000);
     }, []);
 
-    AsyncStorage.getItem('user_id', (err, result) => {
-        setId(result);
-    });
+    (()=>{
+        AsyncStorage.getItem('user_id', (err, result) => {
+            setId(result);
+            console.log("used_id : " + id);
+        });
+    })();
 
     function save() {
         if (name.trim() === "") {
