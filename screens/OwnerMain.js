@@ -9,6 +9,7 @@ import { axiosIp } from "../Axios";
 
 function OwnerMain({ navigation }) {
     const [id, setId] = useState("");
+    const [isCheck, setIsCheck] = useState(false);
     var arrName = [];
     var step;
 
@@ -26,6 +27,7 @@ function OwnerMain({ navigation }) {
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
+                    setIsCheck(true);
                     for(step =0; step < 3; step++){
                         arrName.push(resp.data[step].name);
                     }
@@ -52,14 +54,14 @@ function OwnerMain({ navigation }) {
             <View style={styles.body}>
                 <View style={styles.body_shops}>
                     <View style={styles.body_shop}>
-                        <View style={styles.shop}>
-                            <View>
-                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('Shop')}>
-                                    <Image source={mc} style={{ width: '80%', height: '80%', marginTop: 14 }} />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <Text>맥도날드 송도 GSD</Text>
+                        { isCheck &&    <View style={styles.shop}>
+                                            <View>
+                                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('Shop')}>
+                                                    <Image source={mc} style={{ width: '80%', height: '80%', marginTop: 14 }} />
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View> }
+                        { isCheck && <Text>맥도날드 송도 GSD</Text> }
                     </View>
                 </View>
                 <View style={styles.notice}>
@@ -150,6 +152,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     body_shop: {
+        height: 160,
         alignItems: 'center',
         marginBottom: 15,
     },
