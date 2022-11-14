@@ -9,6 +9,8 @@ import { axiosIp } from "../Axios";
 
 function OwnerMain({ navigation }) {
     const [id, setId] = useState("");
+    var arrName = [];
+    var step;
 
     useEffect(() => {
         (()=>{
@@ -24,9 +26,13 @@ function OwnerMain({ navigation }) {
             ).then(function (resp) {
                 console.log(resp.data);
                 if (resp.data !== null && resp.data != "") {
+                    for(step =0; step < 3; step++){
+                        arrName.push(resp.data[step].name);
+                    }
+                    console.log(arrName)
                     console.log("매장찾기 성공");
                 } else {
-                    console.log("매장찾기 실패");
+                    console.log("등록되어 있는 매장이 없음");
                 }
             }).catch(function (err) {
                 console.log(`Error Message: ${err}`);
