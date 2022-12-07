@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { AntDesign } from '@expo/vector-icons'; //플러스 아이콘
 import mc from "../assets/images/mc.png";
 import { theme } from "../Color";
 
@@ -17,7 +16,7 @@ function StaffMain({ navigation }) {
                     <View style={styles.body_shop}>
                         <View style={styles.shop}>
                             <View>
-                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('Shop')}>
+                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('StaffShop')}>
                                     <Image source={mc} style={{ width: '80%', height: '80%', marginTop: 14 }} />
                                 </TouchableOpacity>
                             </View>
@@ -28,7 +27,7 @@ function StaffMain({ navigation }) {
                 <View style={styles.notice}>
                     <View style={styles.notice_top}>
                         <Text style={{ fontSize: 20, }}>고용 공지사항</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Employ_notice')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('StaffEmploy_notice')}>
                             <Text style={{ fontSize: 15, marginTop: 10 }}>모두 보기</Text>
                         </TouchableOpacity>
                     </View>

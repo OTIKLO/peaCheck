@@ -33,6 +33,10 @@ import Commute_record from "./screens/Commute_record";
 import Login from "./screens/Login";
 import OwnerMain from "./screens/OwnerMain";
 import StaffMain from "./screens/StaffMain";
+import OwnerShop from "./screens/OwnerShop";
+import StaffShop from "./screens/StaffShop";
+import StaffShop_notice from "./screens/StaffShop_notice";
+import StaffEmploy_notice from "./screens/StaffEmploy_notice";
 
 const OwnerStack = createStackNavigator();
 const StaffStack = createStackNavigator();
@@ -47,7 +51,7 @@ const OwnerMainScreen = () => (
     <OwnerStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
-    <OwnerStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
+    <OwnerStack.Screen name="OwnerShop" component={OwnerShop} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
     <OwnerStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
@@ -66,14 +70,9 @@ const OwnerMainScreen = () => (
 const StaffMainScreen = () => (
   <StaffStack.Navigator>
     <StaffStack.Screen name="StaffMain" component={StaffMain} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
-    <StaffStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
+    <StaffStack.Screen name="StaffShop" component={StaffShop} options={{ headerShown: false }} />
+    <StaffStack.Screen name="StaffShop_notice" component={StaffShop_notice} options={{ headerShown: false }} />
+    <StaffStack.Screen name="StaffEmploy_notice" component={StaffEmploy_notice} options={{ headerShown: false }} />
     <StaffStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
     <StaffStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
     <StaffStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
@@ -85,28 +84,7 @@ const StaffMainScreen = () => (
     <StaffStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
   </StaffStack.Navigator>
 );
-/* const MainScreen = () => (
-  <MainStack.Navigator>
-    <MainStack.Screen name="Main" component={Main} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop_management" component={Shop_management} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop_update" component={Shop_update} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop_insert" component={Shop_insert} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop" component={Shop} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop_notice" component={Shop_notice} options={{ headerShown: false }} />
-    <MainStack.Screen name="Shop_notice_add" component={Shop_notice_add} options={{ headerShown: false }} />
-    <MainStack.Screen name="Employ_notice" component={Employ_notice} options={{ headerShown: false }} />
-    <MainStack.Screen name="Employ_notice_add" component={Employ_notice_add} options={{ headerShown: false }} />
-    <MainStack.Screen name="Employ_notice_detail" component={Employ_notice_detail} options={{ headerShown: false }} />
-    <MainStack.Screen name="Today" component={Today} options={{ headerShown: false }} />
-    <MainStack.Screen name="Staff_managments" component={Staff_managments} options={{ headerShown: false }} />
-    <MainStack.Screen name="Staff" component={Staff} options={{ headerShown: false }} />
-    <MainStack.Screen name="Schedule_managments" component={Schedule_managments} options={{ headerShown: false }} />
-    <MainStack.Screen name="Schedule_insert" component={Schedule_insert} options={{headerShown: false}}/>
-    <MainStack.Screen name="Schedule_update" component={Schedule_update} options={{headerShown: false}}/>
-    <MainStack.Screen name="Salary_calculator" component={Salary_calculator} options={{headerShown: false}}/>
-    <MainStack.Screen name="Commute_record" component={Commute_record} options={{headerShown: false}}/>
-  </MainStack.Navigator>
-); */
+
 const ChatStack = createStackNavigator();
 const ChatScreen = () => (
   <ChatStack.Navigator>

@@ -9,7 +9,7 @@ import { axiosIp } from "../Axios";
 
 function OwnerMain({ navigation }) {
     const [id, setId] = useState("");
-    const [isCheck, setIsCheck] = useState(false);
+    const [isCheck, setIsCheck] = useState(true);
     var arrName = [];
     var step;
 
@@ -56,7 +56,7 @@ function OwnerMain({ navigation }) {
                     <View style={styles.body_shop}>
                         { isCheck &&    <View style={styles.shop}>
                                             <View>
-                                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('Shop')}>
+                                                <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigation.navigate('OwnerShop')}>
                                                     <Image source={mc} style={{ width: '80%', height: '80%', marginTop: 14 }} />
                                                 </TouchableOpacity>
                                             </View>
